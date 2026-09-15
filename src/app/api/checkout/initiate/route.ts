@@ -3,6 +3,8 @@ import { prisma } from '@/lib/db';
 import { getPaymentGateway, MockPaymentProvider } from '@/lib/payment';
 import { DEMO_MEMBERSHIP_PLANS } from '@/data/demo-content';
 
+export const dynamic = 'force-dynamic';
+
 function generateMemberCode(): string {
   const randomNum = Math.floor(1000 + Math.random() * 9000);
   return `AF-2026-${randomNum}`;

@@ -1,6 +1,17 @@
 import crypto from 'crypto';
 
-const SECRET = process.env.ADMIN_SESSION_SECRET || 'alpha-fitness-fallback-secret-development-key';
+function getSessionSecret(): string {
+  const secret = process.env.ADMIN_SESSION_SECRET;
+  if (!secret) {
+    if (process.env.NODE_ENV === 'production') {
+      throw new Error(
+        'ADMIN_SESSION_SECRET environment variable is missing in production.'
+      );
+    }
+    return 'alpha-fitness-fallback-secret-development-key';
+  }
+  return secret;
+}
 
 export function hashPassword(password: string, salt?: string): { hash: string; salt: string } {
   const generatedSalt = salt || crypto.randomBytes(16).toString('hex');
@@ -25,7 +36,7 @@ export function createSessionToken(payload: Omit<SessionPayload, 'exp'>, expires
   const exp = Math.floor(Date.now() / 1000) + expiresInHours * 3600;
   const data: SessionPayload = { ...payload, exp };
   const encodedData = Buffer.from(JSON.stringify(data)).toString('base64url');
-  const signature = crypto.createHmac('sha256', SECRET).update(encodedData).digest('base64url');
+  const signature = crypto.createHmac('sha256', getSessionSecret()).update(encodedData).digest('base64url');
   return `${encodedData}.${signature}`;
 }
 
@@ -34,7 +45,7 @@ export function verifySessionToken(token: string): SessionPayload | null {
     const parts = token.split('.');
     if (parts.length !== 2) return null;
     const [encodedData, signature] = parts;
-    const expectedSignature = crypto.createHmac('sha256', SECRET).update(encodedData).digest('base64url');
+    const expectedSignature = crypto.createHmac('sha256', getSessionSecret()).update(encodedData).digest('base64url');
     
     if (!crypto.timingSafeEqual(Buffer.from(signature), Buffer.from(expectedSignature))) {
       return null;
@@ -50,3 +61,4 @@ export function verifySessionToken(token: string): SessionPayload | null {
     return null;
   }
 }
+

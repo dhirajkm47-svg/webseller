@@ -3,6 +3,8 @@ import { prisma } from '@/lib/db';
 import { getPaymentGateway } from '@/lib/payment';
 import { DEMO_MEMBERSHIP_PLANS } from '@/data/demo-content';
 
+export const dynamic = 'force-dynamic';
+
 function calculateEndDate(durationEnum: string, startDate: Date): Date {
   const end = new Date(startDate);
   switch (durationEnum) {

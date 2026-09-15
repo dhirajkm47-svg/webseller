@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/db';
 import { verifySessionToken } from '@/lib/auth';
 
+export const dynamic = 'force-dynamic';
+
 function checkAuth(req: NextRequest) {
   const token = req.cookies.get('admin_token')?.value;
   if (!token) return null;
