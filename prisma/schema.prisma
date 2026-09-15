@@ -1,0 +1,63 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  passwordHash String
+  salt         String
+  name         String
+  role         String   @default("ADMIN")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Member {
+  id               String       @id @default(uuid())
+  memberCode       String       @unique
+  fullName         String
+  email            String       @unique
+  phone            String
+  emergencyContact String?
+  createdAt        DateTime     @default(now())
+  updatedAt        DateTime     @updatedAt
+  memberships      Membership[]
+  payments         Payment[]
+}
+
+model Membership {
+  id        String   @id @default(uuid())
+  memberId  String
+  member    Member   @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  planSlug  String
+  planName  String
+  duration  String
+  amount    Float
+  startDate DateTime
+  endDate   DateTime
+  status    String   @default("ACTIVE")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Payment {
+  id           String   @id @default(uuid())
+  orderId      String   @unique
+  paymentId    String?
+  memberId     String
+  member       Member   @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  membershipId String?
+  amount       Float
+  currency     String   @default("INR")
+  status       String   @default("INITIATED")
+  provider     String   @default("MOCK")
+  rawPayload   String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
