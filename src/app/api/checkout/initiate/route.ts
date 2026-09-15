@@ -1,7 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
+import crypto from 'crypto';
 import { prisma } from '@/lib/db';
 import { getPaymentGateway, MockPaymentProvider } from '@/lib/payment';
 import { DEMO_MEMBERSHIP_PLANS } from '@/data/demo-content';
+import { isDemoMode } from '@/lib/demo-mode';
 
 export const dynamic = 'force-dynamic';
 
@@ -33,7 +35,29 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Find or create member
+    // EXPLICIT DEMO MODE
+    if (isDemoMode()) {
+      const orderId = `order_demo_${Date.now()}`;
+      const mockPaymentId = `pay_mock_${Date.now()}`;
+      const memberCode = generateMemberCode();
+      const memberId = `demo_mbr_${Date.now()}`;
+      const mockGateway = new MockPaymentProvider();
+      const signature = mockGateway.generateMockSignature(orderId, mockPaymentId);
+
+      return NextResponse.json({
+        orderId,
+        paymentId: mockPaymentId,
+        memberId,
+        memberCode,
+        amount: plan.priceInINR,
+        currency: 'INR',
+        provider: 'MOCK',
+        signature,
+        demoMode: true,
+      });
+    }
+
+    // STANDARD PRODUCTION DATABASE PATH
     let member = await prisma.member.findUnique({
       where: { email: email.toLowerCase().trim() },
     });

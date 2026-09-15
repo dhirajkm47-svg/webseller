@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/db';
 import { getPaymentGateway } from '@/lib/payment';
 import { DEMO_MEMBERSHIP_PLANS } from '@/data/demo-content';
+import { isDemoMode, addDemoMember } from '@/lib/demo-mode';
 
 export const dynamic = 'force-dynamic';
 
@@ -29,7 +30,7 @@ function calculateEndDate(durationEnum: string, startDate: Date): Date {
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { orderId, paymentId, signature, memberId, planId } = body;
+    const { orderId, paymentId, signature, memberId, planId, fullName, email, phone } = body;
 
     if (!orderId || !paymentId) {
       return NextResponse.json(
@@ -53,7 +54,40 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Find payment record
+    // Find plan details
+    const selectedPlan =
+      DEMO_MEMBERSHIP_PLANS.find((p) => p.id === planId || p.slug === planId) ||
+      DEMO_MEMBERSHIP_PLANS[0];
+
+    const startDate = new Date();
+    const endDate = calculateEndDate(selectedPlan.durationEnum, startDate);
+
+    // EXPLICIT DEMO MODE
+    if (isDemoMode()) {
+      const demoRecord = addDemoMember({
+        fullName: fullName || 'Demo Member',
+        email: email || 'demo.user@alphafitness.demo',
+        phone: phone || '+91 99999 88888',
+        planId: selectedPlan.id,
+        orderId,
+        paymentId,
+        amount: selectedPlan.priceInINR,
+      });
+
+      return NextResponse.json({
+        success: true,
+        message: 'Payment verified and membership activated (Demo Simulation).',
+        memberCode: demoRecord.memberCode,
+        memberName: demoRecord.fullName,
+        planName: selectedPlan.name,
+        startDate: startDate.toISOString(),
+        endDate: endDate.toISOString(),
+        paymentId,
+        demoMode: true,
+      });
+    }
+
+    // STANDARD PRODUCTION DATABASE PATH
     const payment = await prisma.payment.findUnique({
       where: { orderId },
       include: { member: true },
@@ -65,14 +99,6 @@ export async function POST(req: NextRequest) {
         { status: 404 }
       );
     }
-
-    // Find plan details
-    const selectedPlan =
-      DEMO_MEMBERSHIP_PLANS.find((p) => p.id === planId || p.slug === planId) ||
-      DEMO_MEMBERSHIP_PLANS[0];
-
-    const startDate = new Date();
-    const endDate = calculateEndDate(selectedPlan.durationEnum, startDate);
 
     // Create active membership record
     const membership = await prisma.membership.create({

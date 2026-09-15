@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/db';
 import { verifySessionToken } from '@/lib/auth';
+import { isDemoMode, getDemoMembers, getDemoMetrics, deleteDemoMember } from '@/lib/demo-mode';
 
 export const dynamic = 'force-dynamic';
 
@@ -17,6 +18,16 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized admin access.' }, { status: 401 });
     }
 
+    // EXPLICIT DEMO MODE
+    if (isDemoMode()) {
+      return NextResponse.json({
+        members: getDemoMembers(),
+        metrics: getDemoMetrics(),
+        demoMode: true,
+      });
+    }
+
+    // STANDARD PRODUCTION DATABASE PATH
     const members = await prisma.member.findMany({
       orderBy: { createdAt: 'desc' },
       include: {
@@ -66,6 +77,13 @@ export async function DELETE(req: NextRequest) {
       return NextResponse.json({ error: 'Member ID is required.' }, { status: 400 });
     }
 
+    // EXPLICIT DEMO MODE
+    if (isDemoMode()) {
+      deleteDemoMember(memberId);
+      return NextResponse.json({ success: true, message: 'Member record removed (Demo Simulation).' });
+    }
+
+    // STANDARD PRODUCTION DATABASE PATH
     await prisma.member.delete({
       where: { id: memberId },
     });
