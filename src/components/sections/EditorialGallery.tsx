@@ -1,22 +1,22 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
-import { ArrowRight, Camera } from "lucide-react";
+import { Camera } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function EditorialGallery() {
   return (
-    <section id="gallery" className="py-24 bg-[#09090B] border-t border-white/10 relative">
+    <section id="gallery" className="py-24 bg-[#0B0B0F] border-t border-white/10 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div className="space-y-3">
-            <div className="inline-flex items-center gap-2 text-xs font-heading font-black uppercase tracking-[0.25em] text-[#E50914]">
+            <div className="inline-flex items-center gap-2 text-xs font-heading font-black uppercase tracking-[0.25em] text-[#7A5CFF]">
               <Camera className="w-3.5 h-3.5" />
               <span>VISUAL CAMPAIGN</span>
             </div>
             <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white uppercase font-heading tracking-tight leading-[1.02]">
-              FITNESS IN <span className="text-[#E50914]">MOTION</span>
+              FITNESS IN <span className="text-[#7A5CFF]">MOTION</span>
             </h2>
           </div>
           <p className="text-zinc-400 text-xs sm:text-sm max-w-md font-sans leading-relaxed">
@@ -33,7 +33,7 @@ export default function EditorialGallery() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="md:col-span-7 relative h-[360px] sm:h-[480px] lg:h-[540px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl group"
+            className="md:col-span-7 relative h-[360px] sm:h-[480px] lg:h-[540px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl group bg-[#141419]"
           >
             <Image
               src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80&w=1600"
@@ -41,9 +41,9 @@ export default function EditorialGallery() {
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-700 brightness-95"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#09090B]/90 via-[#09090B]/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0F]/90 via-[#0B0B0F]/20 to-transparent" />
             <div className="absolute bottom-6 left-6 right-6">
-              <span className="text-[10px] font-mono text-[#E50914] uppercase tracking-widest font-bold block mb-1">
+              <span className="text-[10px] font-mono text-[#7A5CFF] uppercase tracking-widest font-bold block mb-1">
                 Strength Arena
               </span>
               <h3 className="text-xl sm:text-2xl font-heading font-black text-white uppercase leading-tight">
@@ -60,7 +60,7 @@ export default function EditorialGallery() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="relative h-[220px] sm:h-[255px] rounded-3xl overflow-hidden border border-white/10 shadow-xl group"
+              className="relative h-[220px] sm:h-[255px] rounded-3xl overflow-hidden border border-white/10 shadow-xl group bg-[#141419]"
             >
               <Image
                 src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&q=80&w=1000"
@@ -68,9 +68,9 @@ export default function EditorialGallery() {
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#09090B]/85 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0F]/85 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-5 right-5">
-                <span className="text-[10px] font-mono text-[#E50914] uppercase font-bold block">
+                <span className="text-[10px] font-mono text-[#7A5CFF] uppercase font-bold block">
                   Cardio Space
                 </span>
                 <h4 className="text-base font-heading font-black text-white uppercase">
@@ -85,7 +85,7 @@ export default function EditorialGallery() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="relative h-[220px] sm:h-[255px] rounded-3xl overflow-hidden border border-white/10 shadow-xl group"
+              className="relative h-[220px] sm:h-[255px] rounded-3xl overflow-hidden border border-white/10 shadow-xl group bg-[#141419]"
             >
               <Image
                 src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=80&w=1000"
@@ -93,9 +93,9 @@ export default function EditorialGallery() {
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#09090B]/85 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0F]/85 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-5 right-5">
-                <span className="text-[10px] font-mono text-[#E50914] uppercase font-bold block">
+                <span className="text-[10px] font-mono text-[#7A5CFF] uppercase font-bold block">
                   Movement Floor
                 </span>
                 <h4 className="text-base font-heading font-black text-white uppercase">
@@ -111,7 +111,7 @@ export default function EditorialGallery() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="md:col-span-6 relative h-[240px] sm:h-[280px] rounded-3xl overflow-hidden border border-white/10 shadow-xl group"
+            className="md:col-span-6 relative h-[240px] sm:h-[280px] rounded-3xl overflow-hidden border border-white/10 shadow-xl group bg-[#141419]"
           >
             <Image
               src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1200"
@@ -119,10 +119,10 @@ export default function EditorialGallery() {
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-700"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#09090B]/85 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0F]/85 via-transparent to-transparent" />
             <div className="absolute bottom-5 left-6 right-6 flex items-center justify-between">
               <div>
-                <span className="text-[10px] font-mono text-[#E50914] uppercase font-bold block">
+                <span className="text-[10px] font-mono text-[#7A5CFF] uppercase font-bold block">
                   Free Weights
                 </span>
                 <h4 className="text-base font-heading font-black text-white uppercase">
@@ -138,7 +138,7 @@ export default function EditorialGallery() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="md:col-span-6 relative h-[240px] sm:h-[280px] rounded-3xl overflow-hidden border border-white/10 shadow-xl group"
+            className="md:col-span-6 relative h-[240px] sm:h-[280px] rounded-3xl overflow-hidden border border-white/10 shadow-xl group bg-[#141419]"
           >
             <Image
               src="https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&q=80&w=1200"
@@ -146,10 +146,10 @@ export default function EditorialGallery() {
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-700"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#09090B]/85 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0F]/85 via-transparent to-transparent" />
             <div className="absolute bottom-5 left-6 right-6 flex items-center justify-between">
               <div>
-                <span className="text-[10px] font-mono text-[#E50914] uppercase font-bold block">
+                <span className="text-[10px] font-mono text-[#7A5CFF] uppercase font-bold block">
                   Club Amenities
                 </span>
                 <h4 className="text-base font-heading font-black text-white uppercase">

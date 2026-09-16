@@ -35,7 +35,7 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-[#09090B] text-zinc-100 selection:bg-[#E50914] selection:text-white">
+    <main className="min-h-screen bg-[#0B0B0F] text-[#F5F5F7] selection:bg-[#7A5CFF] selection:text-white">
       {/* Editorial Header */}
       <Header onOpenCheckout={() => handleOpenCheckout()} />
 

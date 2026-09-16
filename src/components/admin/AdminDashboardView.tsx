@@ -161,14 +161,14 @@ export default function AdminDashboardView() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <Link href="/" className="flex items-center gap-2 group">
-              <div className="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white font-black text-sm">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-[#7A5CFF] to-[#3B82F6] flex items-center justify-center text-white font-black text-sm shadow-md shadow-[#7A5CFF]/30">
                 A
               </div>
               <span className="font-heading font-black tracking-wider text-base text-white">
-                ALPHA <span className="text-brand-500">FITNESS</span>
+                ALPHA <span className="text-[#7A5CFF]">FITNESS</span>
               </span>
             </Link>
-            <span className="px-2.5 py-0.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs font-mono font-semibold">
+            <span className="px-2.5 py-0.5 rounded-full bg-[#7A5CFF]/10 border border-[#7A5CFF]/20 text-[#7A5CFF] text-xs font-mono font-semibold">
               Admin Console
             </span>
           </div>
@@ -213,7 +213,7 @@ export default function AdminDashboardView() {
                 {metrics.totalMembers}
               </h3>
             </div>
-            <div className="w-12 h-12 rounded-2xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-400">
+            <div className="w-12 h-12 rounded-2xl bg-[#7A5CFF]/10 border border-[#7A5CFF]/20 flex items-center justify-center text-[#7A5CFF]">
               <Users className="w-6 h-6" />
             </div>
           </div>
@@ -241,7 +241,7 @@ export default function AdminDashboardView() {
                 ₹{metrics.totalRevenueINR.toLocaleString('en-IN')}
               </h3>
             </div>
-            <div className="w-12 h-12 rounded-2xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-400">
+            <div className="w-12 h-12 rounded-2xl bg-[#7A5CFF]/10 border border-[#7A5CFF]/20 flex items-center justify-center text-[#7A5CFF]">
               <TrendingUp className="w-6 h-6" />
             </div>
           </div>
@@ -268,7 +268,7 @@ export default function AdminDashboardView() {
                   placeholder="Search code, name, phone..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-9 pr-4 py-2 rounded-xl bg-dark-bg border border-white/10 text-white placeholder-zinc-500 text-xs focus:outline-none focus:border-brand-500 transition-colors"
+                  className="w-full pl-9 pr-4 py-2 rounded-xl bg-dark-bg border border-white/10 text-white placeholder-zinc-500 text-xs focus:outline-none focus:border-[#7A5CFF] focus:ring-1 focus:ring-[#7A5CFF] transition-colors"
                 />
               </div>
 
@@ -315,7 +315,7 @@ export default function AdminDashboardView() {
 
                     return (
                       <tr key={m.id} className="hover:bg-white/[0.02] transition-colors">
-                        <td className="px-6 py-4 font-mono font-bold text-brand-400">
+                        <td className="px-6 py-4 font-mono font-bold text-[#7A5CFF]">
                           {m.memberCode}
                         </td>
                         <td className="px-6 py-4">

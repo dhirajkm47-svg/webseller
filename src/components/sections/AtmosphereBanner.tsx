@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
@@ -10,7 +10,7 @@ interface AtmosphereBannerProps {
 
 export default function AtmosphereBanner({ onOpenCheckout }: AtmosphereBannerProps) {
   return (
-    <section className="relative py-28 bg-[#09090B] border-y border-white/10 overflow-hidden">
+    <section className="relative py-28 bg-[#0B0B0F] border-y border-white/10 overflow-hidden">
       {/* Full-Bleed Atmospheric Background Photography */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -19,7 +19,7 @@ export default function AtmosphereBanner({ onOpenCheckout }: AtmosphereBannerPro
           fill
           className="object-cover object-center opacity-30"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#09090B] via-[#09090B]/80 to-[#09090B]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B0B0F] via-[#0B0B0F]/80 to-[#0B0B0F]" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
@@ -27,7 +27,7 @@ export default function AtmosphereBanner({ onOpenCheckout }: AtmosphereBannerPro
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#E50914]/10 border border-[#E50914]/20 text-[#E50914] text-xs font-black uppercase tracking-[0.25em] font-heading"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#7A5CFF]/10 border border-[#7A5CFF]/20 text-[#7A5CFF] text-xs font-black uppercase tracking-[0.25em] font-heading"
         >
           AMANORA CLUB • HADAPSAR
         </motion.div>
@@ -39,7 +39,7 @@ export default function AtmosphereBanner({ onOpenCheckout }: AtmosphereBannerPro
           transition={{ delay: 0.1 }}
           className="text-3xl sm:text-5xl lg:text-6xl font-black text-white uppercase font-heading tracking-tight max-w-4xl mx-auto leading-tight"
         >
-          THE STANDARD OF TRAINING AT <span className="text-[#E50914]">AMANORA</span>
+          THE STANDARD OF TRAINING AT <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7A5CFF] to-[#3B82F6]">AMANORA</span>
         </motion.h2>
 
         <motion.p
@@ -61,7 +61,7 @@ export default function AtmosphereBanner({ onOpenCheckout }: AtmosphereBannerPro
         >
           <button
             onClick={onOpenCheckout}
-            className="px-8 py-4 rounded-full bg-[#E50914] hover:bg-[#FF2424] text-white font-heading font-black text-xs uppercase tracking-wider shadow-xl shadow-[#E50914]/35 hover:shadow-[#E50914]/60 transition-all transform hover:-translate-y-0.5 inline-flex items-center gap-2"
+            className="px-8 py-4 rounded-full bg-gradient-to-r from-[#7A5CFF] to-[#3B82F6] hover:brightness-110 text-white font-heading font-black text-xs uppercase tracking-wider shadow-xl shadow-[#7A5CFF]/35 hover:shadow-[#7A5CFF]/60 transition-all transform hover:-translate-y-0.5 active:scale-[0.98] inline-flex items-center gap-2 cursor-pointer"
           >
             <span>Start Your Membership</span>
             <ArrowRight className="w-4 h-4" />

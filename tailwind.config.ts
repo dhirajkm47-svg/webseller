@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss";
+﻿import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
@@ -10,23 +10,28 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          50: '#fff1f2',
-          100: '#ffe4e6',
-          500: '#ff2424',
-          600: '#e50914', // Reference Alpha Crimson Red
-          700: '#c80710',
-          800: '#a30810',
-          900: '#7f080e',
-          accent: '#FF1E27',
-          glow: '#FF3B44',
+          50: '#f5f3ff',
+          100: '#ede9fe',
+          200: '#ddd6fe',
+          300: '#c4b5fd',
+          400: '#9B82FF',
+          500: '#7A5CFF', // Primary InstaFlow Purple Accent
+          600: '#6344E7',
+          700: '#4f35b8',
+          800: '#3c288c',
+          900: '#2b1d63',
+          blue: '#3B82F6', // Secondary Blue Accent
+          accent: '#7A5CFF',
+          glow: '#7A5CFF',
         },
         dark: {
-          bg: '#09090b', // Deep Matte Obsidian
-          surface: '#111115',
-          card: '#15151a',
-          cardHover: '#1c1c22',
-          border: '#23232a',
-          borderLight: '#2e2e38',
+          bg: '#0B0B0F', // Primary Deep Onyx
+          surface: '#101014', // Secondary Surface
+          card: '#141419', // Card Surface
+          cardHover: '#18181F',
+          elevated: '#18181F', // Elevated Surface
+          border: 'rgba(255, 255, 255, 0.08)',
+          borderLight: 'rgba(255, 255, 255, 0.12)',
         }
       },
       fontFamily: {
@@ -34,8 +39,9 @@ const config: Config = {
         display: ['var(--font-montserrat)', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
-        'brand-glow': '0 0 35px -5px rgba(229, 9, 20, 0.4)',
-        'card-glow': '0 0 25px -5px rgba(229, 9, 20, 0.25)',
+        'brand-glow': '0 0 30px -4px rgba(122, 92, 255, 0.45)',
+        'card-glow': '0 0 25px -5px rgba(122, 92, 255, 0.25)',
+        'btn-glow': '0 0 25px -3px rgba(122, 92, 255, 0.45)',
       },
       borderRadius: {
         'pill': '9999px',

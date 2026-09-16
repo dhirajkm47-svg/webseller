@@ -54,7 +54,7 @@ export default function AdminLoginPage() {
         </div>
 
         <div className="text-center mb-8">
-          <div className="w-12 h-12 rounded-2xl bg-brand-600 flex items-center justify-center text-white font-black text-xl mx-auto shadow-lg shadow-brand-600/30">
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-r from-[#7A5CFF] to-[#3B82F6] flex items-center justify-center text-white font-black text-xl mx-auto shadow-lg shadow-[#7A5CFF]/30">
             A
           </div>
           <h1 className="font-heading font-black text-2xl text-white mt-4 uppercase tracking-wider">
@@ -118,7 +118,7 @@ export default function AdminLoginPage() {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full py-3.5 rounded-full bg-brand-600 hover:bg-brand-500 text-white font-heading font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-brand-600/30 transition-all duration-300 disabled:opacity-50 mt-2"
+            className="w-full py-3.5 rounded-full bg-gradient-to-r from-[#7A5CFF] to-[#3B82F6] hover:brightness-110 text-white font-heading font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-[#7A5CFF]/30 hover:shadow-[#7A5CFF]/50 transition-all transform hover:-translate-y-0.5 active:scale-[0.98] disabled:opacity-50 mt-2 cursor-pointer"
           >
             {isLoading ? (
               <>

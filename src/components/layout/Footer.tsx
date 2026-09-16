@@ -1,10 +1,10 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { MapPin, Phone, Mail, Clock, ExternalLink, Shield } from "lucide-react";
 import { CLUB_LOCATION_INFO } from "@/data/demo-content";
 
 export default function Footer() {
   return (
-    <footer id="contact" className="bg-[#09090B] border-t border-white/10 text-zinc-400 pt-16 pb-12">
+    <footer id="contact" className="bg-[#0B0B0F] border-t border-white/10 text-zinc-400 pt-16 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-white/10">
           {/* Brand Logo & Location Info */}
@@ -12,7 +12,13 @@ export default function Footer() {
             <div className="flex items-center gap-2.5">
               <div className="w-7 h-7 flex items-center justify-center">
                 <svg viewBox="0 0 32 32" fill="none" className="w-7 h-7">
-                  <path d="M16 2L3 28H10L16 15L22 28H29L16 2Z" fill="#E50914" />
+                  <defs>
+                    <linearGradient id="footerLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#7A5CFF" />
+                      <stop offset="100%" stopColor="#3B82F6" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M16 2L3 28H10L16 15L22 28H29L16 2Z" fill="url(#footerLogoGrad)" />
                   <path d="M16 8L8 24H12L16 16L20 24H24L16 8Z" fill="#FFFFFF" opacity="0.95" />
                 </svg>
               </div>
@@ -25,15 +31,15 @@ export default function Footer() {
             </p>
             <div className="space-y-2 pt-2 text-xs text-zinc-300 font-sans">
               <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-[#E50914] flex-shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-[#7A5CFF] flex-shrink-0 mt-0.5" />
                 <span>{CLUB_LOCATION_INFO.fullAddress}</span>
               </div>
               <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-[#E50914] flex-shrink-0" />
+                <Phone className="w-4 h-4 text-[#7A5CFF] flex-shrink-0" />
                 <span>{CLUB_LOCATION_INFO.phonePlaceholder}</span>
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-[#E50914] flex-shrink-0" />
+                <Mail className="w-4 h-4 text-[#7A5CFF] flex-shrink-0" />
                 <span>{CLUB_LOCATION_INFO.emailPlaceholder}</span>
               </div>
             </div>
@@ -67,7 +73,7 @@ export default function Footer() {
           {/* Operating Hours */}
           <div className="space-y-3">
             <h3 className="text-xs font-heading font-black text-white uppercase tracking-wider flex items-center gap-1.5">
-              <Clock className="w-3.5 h-3.5 text-[#E50914]" />
+              <Clock className="w-3.5 h-3.5 text-[#7A5CFF]" />
               <span>Hours [DEMO]</span>
             </h3>
             <div className="space-y-2 text-xs font-sans">
@@ -90,16 +96,16 @@ export default function Footer() {
             <h3 className="text-xs font-heading font-black text-white uppercase tracking-wider">
               Management Portal
             </h3>
-            <div className="bg-[#111115] p-4 rounded-2xl border border-white/10 text-xs space-y-2.5">
+            <div className="bg-[#141419] p-4 rounded-2xl border border-white/10 text-xs space-y-2.5">
               <p className="text-zinc-300 text-[11px] font-sans">
                 Admin console for member records, payment logs, and check-in pass validation.
               </p>
               <div className="pt-1">
                 <Link
                   href="/admin"
-                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-zinc-800 hover:bg-zinc-700 text-white font-heading font-bold text-xs uppercase tracking-wider transition-colors"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/[0.04] hover:bg-[#7A5CFF]/10 text-white border border-white/10 hover:border-[#7A5CFF]/40 font-heading font-bold text-xs uppercase tracking-wider transition-all"
                 >
-                  <Shield className="w-3 h-3 text-[#E50914]" />
+                  <Shield className="w-3 h-3 text-[#7A5CFF]" />
                   <span>Admin Dashboard</span>
                   <ExternalLink className="w-3 h-3 text-zinc-400" />
                 </Link>
@@ -116,7 +122,7 @@ export default function Footer() {
             <span>•</span>
             <span>Membership Terms</span>
             <span>•</span>
-            <span className="text-[#E50914] font-semibold">Amanora Township, Hadapsar</span>
+            <span className="text-[#7A5CFF] font-semibold">Amanora Township, Hadapsar</span>
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import { Check, ShieldAlert, ArrowRight } from "lucide-react";
@@ -11,25 +11,25 @@ interface MembershipPlansProps {
 
 export default function MembershipPlans({ onSelectPlan }: MembershipPlansProps) {
   return (
-    <section id="membership" className="py-24 bg-[#09090B] border-t border-white/10 relative">
+    <section id="membership" className="py-24 bg-[#0B0B0F] border-t border-white/10 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           {/* Left Column: Atmospheric Gym Editorial Photography Panel */}
-          <div className="hidden lg:block lg:col-span-5 relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl min-h-[550px]">
+          <div className="hidden lg:block lg:col-span-5 relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl min-h-[550px] bg-[#141419]">
             <Image
               src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=1400"
               alt="Alpha Fitness Membership"
               fill
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#09090B] via-[#09090B]/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0F] via-[#0B0B0F]/40 to-transparent" />
             <div className="absolute top-8 left-8 flex items-center gap-2">
               <span className="font-heading font-black text-sm tracking-widest text-white uppercase">
-                ALPHA <span className="text-[#E50914]">FITNESS</span>
+                ALPHA <span className="text-[#7A5CFF]">FITNESS</span>
               </span>
             </div>
             <div className="absolute bottom-8 left-8 right-8 space-y-2">
-              <span className="text-[10px] uppercase font-mono tracking-widest text-[#E50914] font-bold block">
+              <span className="text-[10px] uppercase font-mono tracking-widest text-[#7A5CFF] font-bold block">
                 Membership Passes
               </span>
               <h4 className="text-2xl font-heading font-black text-white uppercase leading-tight">
@@ -49,7 +49,7 @@ export default function MembershipPlans({ onSelectPlan }: MembershipPlansProps) 
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-xs font-black uppercase tracking-[0.25em] text-[#E50914] font-heading mb-2"
+                className="text-xs font-black uppercase tracking-[0.25em] text-[#7A5CFF] font-heading mb-2"
               >
                 MEMBERSHIP PASSES
               </motion.div>
@@ -86,14 +86,14 @@ export default function MembershipPlans({ onSelectPlan }: MembershipPlansProps) 
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: idx * 0.1 }}
-                    className={`relative rounded-2xl p-6 flex flex-col justify-between transition-all bg-[#111115] ${
+                    className={`relative rounded-2xl p-6 flex flex-col justify-between transition-all bg-[#141419] ${
                       plan.popular
-                        ? "border-2 border-[#E50914] shadow-2xl shadow-[#E50914]/20"
-                        : "border border-white/10 hover:border-zinc-600"
+                        ? "border-2 border-[#7A5CFF] shadow-2xl shadow-[#7A5CFF]/20"
+                        : "border border-white/10 hover:border-[#7A5CFF]/30"
                     }`}
                   >
                     {plan.popular && (
-                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#E50914] text-white text-[10px] font-heading font-black uppercase px-3.5 py-0.5 rounded-full shadow-md tracking-wider">
+                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#7A5CFF] to-[#3B82F6] text-white text-[10px] font-heading font-black uppercase px-3.5 py-0.5 rounded-full shadow-md tracking-wider">
                         Most Popular
                       </div>
                     )}
@@ -101,7 +101,7 @@ export default function MembershipPlans({ onSelectPlan }: MembershipPlansProps) 
                     <div className="space-y-4">
                       <div className="flex items-start justify-between">
                         <div>
-                          <span className="text-[10px] font-heading font-black uppercase tracking-widest text-[#E50914]">
+                          <span className="text-[10px] font-heading font-black uppercase tracking-widest text-[#7A5CFF]">
                             {plan.tierLabel}
                           </span>
                           <h3 className="text-base font-heading font-black text-white uppercase mt-0.5">{plan.name}</h3>
@@ -126,7 +126,7 @@ export default function MembershipPlans({ onSelectPlan }: MembershipPlansProps) 
                       <ul className="space-y-2 text-[11px] text-zinc-300 font-sans">
                         {plan.features.slice(0, 4).map((feat, fIdx) => (
                           <li key={fIdx} className="flex items-start gap-2">
-                            <Check className="w-3.5 h-3.5 text-[#E50914] flex-shrink-0 mt-0.5" />
+                            <Check className="w-3.5 h-3.5 text-[#7A5CFF] flex-shrink-0 mt-0.5" />
                             <span className="leading-tight">{feat}</span>
                           </li>
                         ))}
@@ -136,10 +136,10 @@ export default function MembershipPlans({ onSelectPlan }: MembershipPlansProps) 
                     <div className="pt-6">
                       <button
                         onClick={() => onSelectPlan(plan)}
-                        className={`w-full py-3 px-4 rounded-full text-xs font-heading font-black uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 ${
+                        className={`w-full py-3 px-4 rounded-full text-xs font-heading font-black uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
                           plan.popular
-                            ? "bg-[#E50914] hover:bg-[#FF2424] text-white shadow-lg shadow-[#E50914]/30"
-                            : "bg-white/5 hover:bg-white/10 text-zinc-200 border border-white/10 hover:border-zinc-500"
+                            ? "bg-gradient-to-r from-[#7A5CFF] to-[#3B82F6] hover:brightness-110 text-white shadow-lg shadow-[#7A5CFF]/30 hover:shadow-[#7A5CFF]/50 transform hover:-translate-y-0.5 active:scale-[0.98]"
+                            : "bg-white/[0.04] hover:bg-[#7A5CFF]/10 text-[#F5F5F7] hover:text-white border border-white/10 hover:border-[#7A5CFF]/35 transform hover:-translate-y-0.5 active:scale-[0.98]"
                         }`}
                       >
                         <span>Select Pass</span>
