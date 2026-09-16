@@ -7,7 +7,7 @@ import { DEMO_FACILITIES } from "@/data/demo-content";
 
 export default function Facilities() {
   return (
-    <section id="facilities" className="py-24 bg-[#0B0B0F] border-t border-white/10 relative">
+    <section id="facilities" className="py-24 bg-[#050B18] border-t border-white/10 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Header & Featured Split View */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-12">
@@ -17,7 +17,7 @@ export default function Facilities() {
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-xs font-black uppercase tracking-[0.25em] text-[#7A5CFF] font-heading"
+              className="text-xs font-black uppercase tracking-[0.25em] text-[#00C6FF] font-heading"
             >
               CLUB FACILITIES
             </motion.div>
@@ -51,29 +51,29 @@ export default function Facilities() {
             >
               <a
                 href="#membership"
-                className="inline-flex items-center gap-2.5 px-7 py-3 rounded-full border border-white/15 hover:border-[#7A5CFF]/40 text-xs font-heading font-black text-zinc-200 hover:text-white bg-white/[0.04] hover:bg-[#7A5CFF]/10 transition-all uppercase tracking-wider"
+                className="inline-flex items-center gap-2.5 px-7 py-3 rounded-full border border-[#00C6FF]/30 hover:border-[#00C6FF]/60 text-xs font-heading font-black text-white bg-[#0066FF]/10 hover:bg-[#0066FF]/20 transition-all uppercase tracking-wider"
               >
                 <span>View Membership Plans</span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#7A5CFF]" />
+                <ArrowRight className="w-3.5 h-3.5 text-[#00C6FF]" />
               </a>
             </motion.div>
           </div>
 
           {/* Right Column: Featured Showcase Card */}
           <div className="lg:col-span-6">
-            <div className="relative h-72 sm:h-80 w-full rounded-3xl overflow-hidden border border-white/10 shadow-2xl group bg-[#141419]">
+            <div className="relative h-72 sm:h-80 w-full rounded-3xl overflow-hidden border border-[#00C6FF]/25 shadow-2xl group bg-[#0D1730]">
               <Image
                 src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&q=80&w=1400"
                 alt="Alpha Fitness Amanora Club Facility Preview"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0F]/90 via-[#0B0B0F]/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050B18]/90 via-[#050B18]/30 to-transparent" />
               
               {/* Motivational Typography Banner Overlay */}
               <div className="absolute bottom-6 right-6 text-right max-w-xs">
                 <p className="text-2xl sm:text-3xl font-black text-white uppercase tracking-wider font-heading leading-none drop-shadow-lg">
-                  CONSISTENCY<br />OVER<br /><span className="text-[#7A5CFF]">TIME</span>
+                  CONSISTENCY<br />OVER<br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0066FF] to-[#00C6FF]">TIME</span>
                 </p>
               </div>
             </div>
@@ -89,7 +89,7 @@ export default function Facilities() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.08 }}
-              className="group bg-[#141419] border border-white/10 rounded-2xl overflow-hidden hover:border-[#7A5CFF]/30 transition-all shadow-xl hover:-translate-y-1"
+              className="group bg-[#0D1730] border border-white/10 rounded-2xl overflow-hidden hover:border-[#00C6FF]/40 transition-all shadow-xl hover:-translate-y-1"
             >
               <div className="relative h-40 sm:h-48 w-full overflow-hidden">
                 <Image
@@ -98,10 +98,10 @@ export default function Facilities() {
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#141419] via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0D1730] via-transparent to-transparent" />
               </div>
-              <div className="p-4 bg-[#141419] border-t border-white/5">
-                <h3 className="text-xs font-heading font-black text-white uppercase truncate tracking-wide group-hover:text-[#7A5CFF] transition-colors">
+              <div className="p-4 bg-[#0D1730] border-t border-white/5">
+                <h3 className="text-xs font-heading font-black text-white uppercase truncate tracking-wide group-hover:text-[#00C6FF] transition-colors">
                   {facility.title}
                 </h3>
                 <p className="text-[10px] text-zinc-400 mt-1 line-clamp-2 leading-tight">

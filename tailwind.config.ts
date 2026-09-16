@@ -10,28 +10,29 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          50: '#f5f3ff',
-          100: '#ede9fe',
-          200: '#ddd6fe',
-          300: '#c4b5fd',
-          400: '#9B82FF',
-          500: '#7A5CFF', // Primary InstaFlow Purple Accent
-          600: '#6344E7',
-          700: '#4f35b8',
-          800: '#3c288c',
-          900: '#2b1d63',
-          blue: '#3B82F6', // Secondary Blue Accent
-          accent: '#7A5CFF',
-          glow: '#7A5CFF',
+          50: '#f0f9ff',
+          100: '#e0f2fe',
+          200: '#bae6fd',
+          300: '#7dd3fc',
+          400: '#38bdf8',
+          500: '#00C6FF', // Exact InstaFlow Vibrant Cyan
+          600: '#0066FF', // Exact InstaFlow Cobalt Blue
+          700: '#0052cc',
+          800: '#003d99',
+          900: '#002966',
+          cyan: '#00C6FF',
+          blue: '#0066FF',
+          accent: '#00C6FF',
+          glow: '#00C6FF',
         },
         dark: {
-          bg: '#0B0B0F', // Primary Deep Onyx
-          surface: '#101014', // Secondary Surface
-          card: '#141419', // Card Surface
-          cardHover: '#18181F',
-          elevated: '#18181F', // Elevated Surface
-          border: 'rgba(255, 255, 255, 0.08)',
-          borderLight: 'rgba(255, 255, 255, 0.12)',
+          bg: '#050B18', // Exact InstaFlow Deep Midnight Navy Canvas
+          surface: '#091124', // Secondary Surface
+          card: '#0D1730', // Card Surface
+          cardHover: '#111F42',
+          elevated: '#14254D', // Elevated Surface
+          border: 'rgba(0, 163, 255, 0.12)',
+          borderLight: 'rgba(0, 163, 255, 0.22)',
         }
       },
       fontFamily: {
@@ -39,9 +40,9 @@ const config: Config = {
         display: ['var(--font-montserrat)', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
-        'brand-glow': '0 0 30px -4px rgba(122, 92, 255, 0.45)',
-        'card-glow': '0 0 25px -5px rgba(122, 92, 255, 0.25)',
-        'btn-glow': '0 0 25px -3px rgba(122, 92, 255, 0.45)',
+        'brand-glow': '0 0 30px -4px rgba(0, 198, 255, 0.5)',
+        'card-glow': '0 0 25px -5px rgba(0, 102, 255, 0.3)',
+        'btn-glow': '0 0 25px -2px rgba(0, 198, 255, 0.55)',
       },
       borderRadius: {
         'pill': '9999px',

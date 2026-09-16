@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import Header from "@/components/layout/Header";
@@ -35,7 +35,7 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-[#0B0B0F] text-[#F5F5F7] selection:bg-[#7A5CFF] selection:text-white">
+    <main className="min-h-screen bg-[#050B18] text-[#F8FAFC] selection:bg-[#00C6FF] selection:text-black">
       {/* Editorial Header */}
       <Header onOpenCheckout={() => handleOpenCheckout()} />
 

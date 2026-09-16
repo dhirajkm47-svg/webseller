@@ -1,7 +1,7 @@
 ﻿"use client";
 
 import { useRef } from "react";
-import { MapPin, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { MapPin, ArrowRight, ChevronLeft, ChevronRight, ShieldCheck, Sparkles } from "lucide-react";
 import { motion, useScroll, useTransform, useSpring, useReducedMotion } from "framer-motion";
 import { CLUB_LOCATION_INFO } from "@/data/demo-content";
 
@@ -49,11 +49,12 @@ export default function Hero({ onOpenCheckout }: HeroProps) {
   const metaOpacity = shouldReduceMotion ? 1 : rawMetaOpacity;
 
   return (
-    <section ref={containerRef} className="relative h-[180vh] sm:h-[200vh] bg-[#0B0B0F]">
+    <section ref={containerRef} className="relative h-[180vh] sm:h-[200vh] bg-[#050B18]">
       {/* Sticky Hero Viewport Canvas */}
       <div className="sticky top-0 h-screen w-full flex flex-col justify-between pt-24 pb-8 overflow-hidden">
-        {/* Background Subtle Texture */}
-        <div className="absolute inset-0 z-0 opacity-15 pointer-events-none bg-[radial-gradient(#27272a_1px,transparent_1px)] [background-size:24px_24px]" />
+        {/* Background Subtle Atmosphere Glow & Texture */}
+        <div className="absolute top-1/4 left-1/10 w-[500px] h-[500px] bg-[#0066FF]/15 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute inset-0 z-0 opacity-15 pointer-events-none bg-[radial-gradient(#00C6FF_1px,transparent_1px)] [background-size:24px_24px]" />
 
         {/* Main Split Hero Canvas */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto py-4 sm:py-6">
@@ -66,7 +67,7 @@ export default function Hero({ onOpenCheckout }: HeroProps) {
               transition={{ duration: 0.7 }}
               className="lg:col-span-7 relative order-2 lg:order-1"
             >
-              <div className="relative h-[400px] sm:h-[520px] lg:h-[540px] w-full rounded-3xl overflow-hidden border border-white/15 shadow-2xl group bg-[#0B0B0F]">
+              <div className="relative h-[400px] sm:h-[520px] lg:h-[540px] w-full rounded-3xl overflow-hidden border border-[#00C6FF]/20 shadow-2xl shadow-black/80 group bg-[#0D1730]">
                 {/* Scroll-Driven Cinematic Zoom Container */}
                 <motion.div
                   style={{
@@ -93,12 +94,12 @@ export default function Hero({ onOpenCheckout }: HeroProps) {
                 </motion.div>
                 
                 {/* Crisp Subtle Gradient for Depth */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0F]/90 via-transparent to-transparent opacity-80 pointer-events-none" />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#0B0B0F]/40 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050B18]/90 via-transparent to-transparent opacity-80 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#050B18]/40 via-transparent to-transparent pointer-events-none" />
 
-                {/* Floating Verified Location Tag */}
-                <div className="absolute top-6 left-6 px-4 py-1.5 rounded-full bg-[#101014]/90 border border-white/20 backdrop-blur-md flex items-center gap-2 pointer-events-none z-10">
-                  <span className="w-2 h-2 rounded-full bg-[#7A5CFF] shadow-[0_0_8px_#7A5CFF] animate-pulse" />
+                {/* Floating Verified Location Tag in InstaFlow Partner Badge Style */}
+                <div className="absolute top-6 left-6 px-4 py-1.5 rounded-full bg-[#091124]/90 border border-[#00C6FF]/30 backdrop-blur-md flex items-center gap-2 pointer-events-none z-10 shadow-lg">
+                  <span className="w-2 h-2 rounded-full bg-[#00C6FF] shadow-[0_0_10px_#00C6FF] animate-pulse" />
                   <span className="text-[10px] font-mono font-bold text-white uppercase tracking-widest">
                     Amanora Club • Hadapsar, Pune
                   </span>
@@ -107,14 +108,15 @@ export default function Hero({ onOpenCheckout }: HeroProps) {
                 {/* Bottom Image Caption Overlay */}
                 <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between pointer-events-none z-10">
                   <div>
-                    <span className="text-[10px] font-mono text-[#7A5CFF] uppercase tracking-widest font-bold block mb-1">
+                    <span className="text-[10px] font-mono text-[#00C6FF] uppercase tracking-widest font-bold block mb-1">
                       Training Environment
                     </span>
                     <h3 className="text-xl sm:text-2xl font-heading font-black text-white uppercase leading-tight drop-shadow-md">
                       Strength Floor & Free Weights
                     </h3>
                   </div>
-                  <div className="hidden sm:flex items-center gap-1.5 text-xs font-mono text-zinc-300 bg-black/60 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-sm">
+                  <div className="hidden sm:flex items-center gap-1.5 text-xs font-mono text-zinc-300 bg-[#050B18]/80 px-3.5 py-1.5 rounded-full border border-[#00C6FF]/25 backdrop-blur-sm">
+                    <span className="text-[#00C6FF]">❖</span>
                     <span>Explore Spaces</span>
                   </div>
                 </div>
@@ -132,19 +134,23 @@ export default function Hero({ onOpenCheckout }: HeroProps) {
               }}
               className="lg:col-span-5 space-y-6 order-1 lg:order-2"
             >
-              {/* Editorial Metadata Header */}
-              <div className="flex items-center gap-2.5 text-xs font-heading font-black uppercase tracking-[0.25em] text-[#7A5CFF]">
-                <span>❖</span>
-                <span>ALPHA FITNESS</span>
-                <span className="text-zinc-600">•</span>
-                <span className="text-zinc-400">EST. PUNE</span>
+              {/* Partner Badges matching InstaFlow Image Meta tags */}
+              <div className="flex flex-wrap items-center gap-2">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0066FF]/15 border border-[#00C6FF]/35 text-[#00C6FF] text-[10px] font-mono font-bold uppercase tracking-wider">
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#00C6FF]" />
+                  <span>AMANORA VERIFIED FACILITY</span>
+                </div>
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0066FF]/10 border border-[#00C6FF]/20 text-zinc-300 text-[10px] font-mono uppercase tracking-wider">
+                  <Sparkles className="w-3 h-3 text-[#00C6FF]" />
+                  <span>HADAPSAR, PUNE</span>
+                </div>
               </div>
 
               {/* Asymmetric Bold Headline */}
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white uppercase font-heading tracking-tight leading-[0.92]">
                 TRAIN.<br />
                 TRANSFORM.<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7A5CFF] to-[#3B82F6]">BELONG.</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0066FF] to-[#00C6FF]">BELONG.</span>
               </h1>
 
               {/* Short Factual Supporting Text */}
@@ -152,11 +158,11 @@ export default function Hero({ onOpenCheckout }: HeroProps) {
                 Dedicated strength training space, free weights, cardio equipment, and streamlined digital membership access inside Amanora Club, Hadapsar, Pune.
               </p>
 
-              {/* Clear Action CTAs */}
+              {/* Clear Action CTAs — InstaFlow Exact Button Colors */}
               <div className="pt-2 flex flex-wrap items-center gap-3.5">
                 <button
                   onClick={onOpenCheckout}
-                  className="px-8 py-4 rounded-full bg-gradient-to-r from-[#7A5CFF] to-[#3B82F6] hover:brightness-110 text-white font-heading font-black text-xs uppercase tracking-wider shadow-xl shadow-[#7A5CFF]/35 hover:shadow-[#7A5CFF]/55 transition-all transform hover:-translate-y-0.5 active:scale-[0.98] flex items-center gap-2 cursor-pointer"
+                  className="px-8 py-4 rounded-full bg-gradient-to-r from-[#0066FF] to-[#00C6FF] hover:brightness-110 text-white font-heading font-black text-xs uppercase tracking-wider shadow-xl shadow-[#0066FF]/40 hover:shadow-[#00C6FF]/60 transition-all transform hover:-translate-y-0.5 active:scale-[0.98] flex items-center gap-2 cursor-pointer"
                 >
                   <span>Join Now</span>
                   <ArrowRight className="w-4 h-4" />
@@ -164,7 +170,7 @@ export default function Hero({ onOpenCheckout }: HeroProps) {
 
                 <a
                   href="#membership"
-                  className="px-6 py-4 rounded-full bg-white/[0.04] hover:bg-[#7A5CFF]/10 border border-white/10 hover:border-[#7A5CFF]/35 text-[#F5F5F7] hover:text-white font-heading font-bold text-xs uppercase tracking-wider transition-all transform hover:-translate-y-0.5 flex items-center gap-2"
+                  className="px-6 py-4 rounded-full bg-[#0066FF]/10 hover:bg-[#0066FF]/20 border border-[#00C6FF]/30 hover:border-[#00C6FF]/60 text-white font-heading font-bold text-xs uppercase tracking-wider transition-all transform hover:-translate-y-0.5 flex items-center gap-2"
                 >
                   <span>View Plans</span>
                 </a>
@@ -172,7 +178,7 @@ export default function Hero({ onOpenCheckout }: HeroProps) {
 
               {/* Location Line Indicator */}
               <div className="pt-4 border-t border-white/10 flex items-center gap-2 text-xs text-zinc-400 font-sans">
-                <MapPin className="w-3.5 h-3.5 text-[#7A5CFF] shrink-0" />
+                <MapPin className="w-3.5 h-3.5 text-[#00C6FF] shrink-0" />
                 <span>{CLUB_LOCATION_INFO.fullAddress}</span>
               </div>
             </motion.div>
@@ -188,9 +194,9 @@ export default function Hero({ onOpenCheckout }: HeroProps) {
           <div className="pt-4 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs font-mono text-zinc-400">
             {/* Editorial Three Pillars Navigation */}
             <div className="flex items-center gap-6 text-[11px] uppercase tracking-wider">
-              <span className="text-zinc-200"><strong className="text-[#7A5CFF]">01</strong> — TRAIN</span>
-              <span className="text-zinc-200"><strong className="text-[#7A5CFF]">02</strong> — TRANSFORM</span>
-              <span className="text-zinc-200"><strong className="text-[#7A5CFF]">03</strong> — BELONG</span>
+              <span className="text-zinc-200"><strong className="text-[#00C6FF]">01</strong> — TRAIN</span>
+              <span className="text-zinc-200"><strong className="text-[#00C6FF]">02</strong> — TRANSFORM</span>
+              <span className="text-zinc-200"><strong className="text-[#00C6FF]">03</strong> — BELONG</span>
             </div>
 
             {/* Slide Indicator */}
@@ -199,13 +205,13 @@ export default function Hero({ onOpenCheckout }: HeroProps) {
               <div className="flex items-center gap-1.5">
                 <button
                   aria-label="Previous Slide"
-                  className="w-7 h-7 rounded-full bg-[#141419] border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:border-[#7A5CFF]/40 transition-colors"
+                  className="w-7 h-7 rounded-full bg-[#0D1730] border border-[#00C6FF]/25 flex items-center justify-center text-zinc-400 hover:text-white hover:border-[#00C6FF]/60 transition-colors"
                 >
                   <ChevronLeft className="w-3.5 h-3.5" />
                 </button>
                 <button
                   aria-label="Next Slide"
-                  className="w-7 h-7 rounded-full bg-[#141419] border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:border-[#7A5CFF]/40 transition-colors"
+                  className="w-7 h-7 rounded-full bg-[#0D1730] border border-[#00C6FF]/25 flex items-center justify-center text-zinc-400 hover:text-white hover:border-[#00C6FF]/60 transition-colors"
                 >
                   <ChevronRight className="w-3.5 h-3.5" />
                 </button>

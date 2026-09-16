@@ -1,23 +1,11 @@
-"use client";
+﻿"use client";
 
 import React, { useState, useEffect } from 'react';
-import { 
-  Users, 
-  CreditCard, 
-  TrendingUp, 
-  Search, 
-  Trash2, 
-  LogOut, 
-  ShieldCheck, 
-  CheckCircle2, 
-  Clock, 
-  RefreshCw,
-  ExternalLink
-} from 'lucide-react';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { Users, TrendingUp, Search, RefreshCw, Trash2, LogOut, ExternalLink, Shield, CheckCircle2 } from 'lucide-react';
+import Link from 'next/link';
 
-interface MemberItem {
+interface MemberRecord {
   id: string;
   memberCode: string;
   fullName: string;
@@ -54,7 +42,7 @@ interface Metrics {
 
 export default function AdminDashboardView() {
   const router = useRouter();
-  const [members, setMembers] = useState<MemberItem[]>([]);
+  const [members, setMembers] = useState<MemberRecord[]>([]);
   const [metrics, setMetrics] = useState<Metrics>({
     totalMembers: 0,
     activeMemberships: 0,
@@ -62,85 +50,69 @@ export default function AdminDashboardView() {
   });
   const [isLoading, setIsLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
-  const [adminUser, setAdminUser] = useState<{ name: string; email: string } | null>(null);
+  const [adminUser, setAdminUser] = useState<{ email: string; name: string } | null>(null);
 
   const fetchMembers = async () => {
     setIsLoading(true);
     try {
       const res = await fetch('/api/admin/members');
-      if (!res.ok) {
-        if (res.status === 401) {
-          router.push('/admin/login');
-          return;
-        }
-        throw new Error('Failed to load members.');
+      if (res.status === 401) {
+        router.push('/admin/login');
+        return;
       }
       const data = await res.json();
       setMembers(data.members || []);
       setMetrics(data.metrics || { totalMembers: 0, activeMemberships: 0, totalRevenueINR: 0 });
     } catch (err) {
-      console.error(err);
+      console.error('Error fetching admin data:', err);
     } finally {
       setIsLoading(false);
     }
   };
 
   useEffect(() => {
-    const initData = async () => {
+    const checkSession = async () => {
       try {
-        const authRes = await fetch('/api/admin/auth');
-        if (authRes.ok) {
-          const authData = await authRes.json();
-          setAdminUser(authData.admin);
-        } else {
+        const res = await fetch('/api/admin/auth');
+        if (!res.ok) {
           router.push('/admin/login');
           return;
         }
+        const data = await res.json();
+        setAdminUser(data.admin);
+        fetchMembers();
       } catch {
         router.push('/admin/login');
-        return;
-      }
-
-      setIsLoading(true);
-      try {
-        const res = await fetch('/api/admin/members');
-        if (!res.ok) {
-          if (res.status === 401) {
-            router.push('/admin/login');
-            return;
-          }
-          throw new Error('Failed to load members.');
-        }
-        const data = await res.json();
-        setMembers(data.members || []);
-        setMetrics(data.metrics || { totalMembers: 0, activeMemberships: 0, totalRevenueINR: 0 });
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setIsLoading(false);
       }
     };
-
-    initData();
+    checkSession();
   }, [router]);
 
   const handleLogout = async () => {
-    await fetch('/api/admin/auth', { method: 'DELETE' });
-    router.push('/admin/login');
+    try {
+      await fetch('/api/admin/auth', { method: 'DELETE' });
+      router.push('/admin/login');
+    } catch (err) {
+      console.error('Logout error:', err);
+    }
   };
 
   const handleDeleteMember = async (id: string, name: string) => {
-    if (!confirm(`Are you sure you want to delete member ${name}? This will remove all associated memberships and payment logs.`)) {
+    if (!confirm(`Are you sure you want to delete member record for "${name}"?`)) {
       return;
     }
 
     try {
-      const res = await fetch(`/api/admin/members?id=${id}`, { method: 'DELETE' });
+      const res = await fetch(`/api/admin/members?id=${id}`, {
+        method: 'DELETE',
+      });
       if (res.ok) {
         fetchMembers();
+      } else {
+        alert('Failed to delete member.');
       }
     } catch (err) {
-      console.error('Delete error:', err);
+      console.error('Delete member error:', err);
     }
   };
 
@@ -155,20 +127,20 @@ export default function AdminDashboardView() {
   });
 
   return (
-    <div className="min-h-screen bg-dark-bg text-zinc-100 selection:bg-brand-600 selection:text-white">
+    <div className="min-h-screen bg-[#050B18] text-[#F8FAFC] selection:bg-[#00C6FF] selection:text-black">
       {/* Admin Top Navigation */}
-      <header className="border-b border-white/10 bg-dark-card/80 backdrop-blur-md sticky top-0 z-40">
+      <header className="border-b border-white/10 bg-[#091124]/90 backdrop-blur-md sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <Link href="/" className="flex items-center gap-2 group">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-[#7A5CFF] to-[#3B82F6] flex items-center justify-center text-white font-black text-sm shadow-md shadow-[#7A5CFF]/30">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-[#0066FF] to-[#00C6FF] flex items-center justify-center text-white font-black text-sm shadow-md shadow-[#0066FF]/40">
                 A
               </div>
               <span className="font-heading font-black tracking-wider text-base text-white">
-                ALPHA <span className="text-[#7A5CFF]">FITNESS</span>
+                ALPHA<span className="text-[#00C6FF]">.FITNESS</span>
               </span>
             </Link>
-            <span className="px-2.5 py-0.5 rounded-full bg-[#7A5CFF]/10 border border-[#7A5CFF]/20 text-[#7A5CFF] text-xs font-mono font-semibold">
+            <span className="px-2.5 py-0.5 rounded-full bg-[#0066FF]/15 border border-[#00C6FF]/30 text-[#00C6FF] text-xs font-mono font-semibold">
               Admin Console
             </span>
           </div>
@@ -191,7 +163,7 @@ export default function AdminDashboardView() {
 
             <button
               onClick={handleLogout}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 text-red-400 text-xs font-medium transition-colors"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 text-red-400 text-xs font-medium transition-colors cursor-pointer"
             >
               <LogOut className="w-3.5 h-3.5" />
               <span>Logout</span>
@@ -204,7 +176,7 @@ export default function AdminDashboardView() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Metrics Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
-          <div className="p-6 rounded-2xl bg-dark-card border border-white/10 flex items-center justify-between">
+          <div className="p-6 rounded-2xl bg-[#0D1730] border border-[#00C6FF]/25 flex items-center justify-between shadow-xl">
             <div>
               <span className="text-xs text-zinc-400 uppercase tracking-wider font-semibold">
                 Total Enrolled Members
@@ -213,12 +185,12 @@ export default function AdminDashboardView() {
                 {metrics.totalMembers}
               </h3>
             </div>
-            <div className="w-12 h-12 rounded-2xl bg-[#7A5CFF]/10 border border-[#7A5CFF]/20 flex items-center justify-center text-[#7A5CFF]">
+            <div className="w-12 h-12 rounded-2xl bg-[#0066FF]/15 border border-[#00C6FF]/30 flex items-center justify-center text-[#00C6FF]">
               <Users className="w-6 h-6" />
             </div>
           </div>
 
-          <div className="p-6 rounded-2xl bg-dark-card border border-white/10 flex items-center justify-between">
+          <div className="p-6 rounded-2xl bg-[#0D1730] border border-[#00C6FF]/25 flex items-center justify-between shadow-xl">
             <div>
               <span className="text-xs text-zinc-400 uppercase tracking-wider font-semibold">
                 Active Passes
@@ -232,7 +204,7 @@ export default function AdminDashboardView() {
             </div>
           </div>
 
-          <div className="p-6 rounded-2xl bg-dark-card border border-white/10 flex items-center justify-between">
+          <div className="p-6 rounded-2xl bg-[#0D1730] border border-[#00C6FF]/25 flex items-center justify-between shadow-xl">
             <div>
               <span className="text-xs text-zinc-400 uppercase tracking-wider font-semibold">
                 Total Revenue
@@ -241,14 +213,14 @@ export default function AdminDashboardView() {
                 ₹{metrics.totalRevenueINR.toLocaleString('en-IN')}
               </h3>
             </div>
-            <div className="w-12 h-12 rounded-2xl bg-[#7A5CFF]/10 border border-[#7A5CFF]/20 flex items-center justify-center text-[#7A5CFF]">
+            <div className="w-12 h-12 rounded-2xl bg-[#0066FF]/15 border border-[#00C6FF]/30 flex items-center justify-center text-[#00C6FF]">
               <TrendingUp className="w-6 h-6" />
             </div>
           </div>
         </div>
 
         {/* Members Directory Card */}
-        <div className="rounded-2xl bg-dark-card border border-white/10 overflow-hidden shadow-xl">
+        <div className="rounded-2xl bg-[#0D1730] border border-[#00C6FF]/25 overflow-hidden shadow-xl">
           {/* Header & Search */}
           <div className="p-6 border-b border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div>
@@ -268,13 +240,13 @@ export default function AdminDashboardView() {
                   placeholder="Search code, name, phone..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-9 pr-4 py-2 rounded-xl bg-dark-bg border border-white/10 text-white placeholder-zinc-500 text-xs focus:outline-none focus:border-[#7A5CFF] focus:ring-1 focus:ring-[#7A5CFF] transition-colors"
+                  className="w-full pl-9 pr-4 py-2 rounded-xl bg-[#050B18] border border-white/15 text-white placeholder-zinc-500 text-xs focus:outline-none focus:border-[#00C6FF] focus:ring-1 focus:ring-[#00C6FF] transition-colors"
                 />
               </div>
 
               <button
                 onClick={fetchMembers}
-                className="p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-zinc-300 transition-colors"
+                className="p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-zinc-300 transition-colors cursor-pointer"
                 title="Refresh"
               >
                 <RefreshCw className={`w-4 h-4 ${isLoading ? 'animate-spin' : ''}`} />
@@ -315,7 +287,7 @@ export default function AdminDashboardView() {
 
                     return (
                       <tr key={m.id} className="hover:bg-white/[0.02] transition-colors">
-                        <td className="px-6 py-4 font-mono font-bold text-[#7A5CFF]">
+                        <td className="px-6 py-4 font-mono font-bold text-[#00C6FF]">
                           {m.memberCode}
                         </td>
                         <td className="px-6 py-4">
@@ -359,7 +331,7 @@ export default function AdminDashboardView() {
                         <td className="px-6 py-4 text-right">
                           <button
                             onClick={() => handleDeleteMember(m.id, m.fullName)}
-                            className="p-1.5 rounded-lg bg-red-500/10 hover:bg-red-500/20 text-red-400 hover:text-red-300 transition-colors"
+                            className="p-1.5 rounded-lg bg-red-500/10 hover:bg-red-500/20 text-red-400 hover:text-red-300 transition-colors cursor-pointer"
                             title="Delete Member"
                           >
                             <Trash2 className="w-4 h-4" />

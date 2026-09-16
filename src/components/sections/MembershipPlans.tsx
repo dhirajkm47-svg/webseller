@@ -11,31 +11,31 @@ interface MembershipPlansProps {
 
 export default function MembershipPlans({ onSelectPlan }: MembershipPlansProps) {
   return (
-    <section id="membership" className="py-24 bg-[#0B0B0F] border-t border-white/10 relative">
+    <section id="membership" className="py-24 bg-[#050B18] border-t border-white/10 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           {/* Left Column: Atmospheric Gym Editorial Photography Panel */}
-          <div className="hidden lg:block lg:col-span-5 relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl min-h-[550px] bg-[#141419]">
+          <div className="hidden lg:block lg:col-span-5 relative rounded-3xl overflow-hidden border border-[#00C6FF]/25 shadow-2xl min-h-[550px] bg-[#0D1730]">
             <Image
               src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=1400"
               alt="Alpha Fitness Membership"
               fill
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0F] via-[#0B0B0F]/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#050B18] via-[#050B18]/40 to-transparent" />
             <div className="absolute top-8 left-8 flex items-center gap-2">
               <span className="font-heading font-black text-sm tracking-widest text-white uppercase">
-                ALPHA <span className="text-[#7A5CFF]">FITNESS</span>
+                ALPHA<span className="text-[#00C6FF]">.FITNESS</span>
               </span>
             </div>
             <div className="absolute bottom-8 left-8 right-8 space-y-2">
-              <span className="text-[10px] uppercase font-mono tracking-widest text-[#7A5CFF] font-bold block">
+              <span className="text-[10px] uppercase font-mono tracking-widest text-[#00C6FF] font-bold block">
                 Membership Passes
               </span>
               <h4 className="text-2xl font-heading font-black text-white uppercase leading-tight">
                 ELEVATE YOUR WORKOUT STANDARDS
               </h4>
-              <p className="text-xs text-zinc-400 font-sans">
+              <p className="text-xs text-zinc-300 font-sans">
                 Amanora Club (Fern Hotel), Amanora Township, Hadapsar, Pune.
               </p>
             </div>
@@ -49,7 +49,7 @@ export default function MembershipPlans({ onSelectPlan }: MembershipPlansProps) 
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-xs font-black uppercase tracking-[0.25em] text-[#7A5CFF] font-heading mb-2"
+                className="text-xs font-black uppercase tracking-[0.25em] text-[#00C6FF] font-heading mb-2"
               >
                 MEMBERSHIP PASSES
               </motion.div>
@@ -86,14 +86,14 @@ export default function MembershipPlans({ onSelectPlan }: MembershipPlansProps) 
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: idx * 0.1 }}
-                    className={`relative rounded-2xl p-6 flex flex-col justify-between transition-all bg-[#141419] ${
+                    className={`relative rounded-2xl p-6 flex flex-col justify-between transition-all bg-[#0D1730] ${
                       plan.popular
-                        ? "border-2 border-[#7A5CFF] shadow-2xl shadow-[#7A5CFF]/20"
-                        : "border border-white/10 hover:border-[#7A5CFF]/30"
+                        ? "border-2 border-[#00C6FF] shadow-2xl shadow-[#0066FF]/30"
+                        : "border border-white/10 hover:border-[#00C6FF]/40"
                     }`}
                   >
                     {plan.popular && (
-                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#7A5CFF] to-[#3B82F6] text-white text-[10px] font-heading font-black uppercase px-3.5 py-0.5 rounded-full shadow-md tracking-wider">
+                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#0066FF] to-[#00C6FF] text-white text-[10px] font-heading font-black uppercase px-3.5 py-0.5 rounded-full shadow-md tracking-wider">
                         Most Popular
                       </div>
                     )}
@@ -101,12 +101,12 @@ export default function MembershipPlans({ onSelectPlan }: MembershipPlansProps) 
                     <div className="space-y-4">
                       <div className="flex items-start justify-between">
                         <div>
-                          <span className="text-[10px] font-heading font-black uppercase tracking-widest text-[#7A5CFF]">
+                          <span className="text-[10px] font-heading font-black uppercase tracking-widest text-[#00C6FF]">
                             {plan.tierLabel}
                           </span>
                           <h3 className="text-base font-heading font-black text-white uppercase mt-0.5">{plan.name}</h3>
                         </div>
-                        <span className="text-xs font-mono font-bold text-zinc-500">
+                        <span className="text-xs font-mono font-bold text-zinc-400">
                           {planNumber}
                         </span>
                       </div>
@@ -126,7 +126,7 @@ export default function MembershipPlans({ onSelectPlan }: MembershipPlansProps) 
                       <ul className="space-y-2 text-[11px] text-zinc-300 font-sans">
                         {plan.features.slice(0, 4).map((feat, fIdx) => (
                           <li key={fIdx} className="flex items-start gap-2">
-                            <Check className="w-3.5 h-3.5 text-[#7A5CFF] flex-shrink-0 mt-0.5" />
+                            <Check className="w-3.5 h-3.5 text-[#00C6FF] flex-shrink-0 mt-0.5" />
                             <span className="leading-tight">{feat}</span>
                           </li>
                         ))}
@@ -138,8 +138,8 @@ export default function MembershipPlans({ onSelectPlan }: MembershipPlansProps) 
                         onClick={() => onSelectPlan(plan)}
                         className={`w-full py-3 px-4 rounded-full text-xs font-heading font-black uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
                           plan.popular
-                            ? "bg-gradient-to-r from-[#7A5CFF] to-[#3B82F6] hover:brightness-110 text-white shadow-lg shadow-[#7A5CFF]/30 hover:shadow-[#7A5CFF]/50 transform hover:-translate-y-0.5 active:scale-[0.98]"
-                            : "bg-white/[0.04] hover:bg-[#7A5CFF]/10 text-[#F5F5F7] hover:text-white border border-white/10 hover:border-[#7A5CFF]/35 transform hover:-translate-y-0.5 active:scale-[0.98]"
+                            ? "bg-gradient-to-r from-[#0066FF] to-[#00C6FF] hover:brightness-110 text-white shadow-lg shadow-[#0066FF]/40 hover:shadow-[#00C6FF]/60 transform hover:-translate-y-0.5 active:scale-[0.98]"
+                            : "bg-[#0066FF]/10 hover:bg-[#0066FF]/20 text-white border border-[#00C6FF]/30 hover:border-[#00C6FF]/60 transform hover:-translate-y-0.5 active:scale-[0.98]"
                         }`}
                       >
                         <span>Select Pass</span>
@@ -152,8 +152,8 @@ export default function MembershipPlans({ onSelectPlan }: MembershipPlansProps) 
             </div>
 
             {/* Demo Notice */}
-            <div className="pt-2 flex items-center gap-2 text-[11px] text-zinc-500 font-sans">
-              <ShieldAlert className="w-3.5 h-3.5 text-amber-500 flex-shrink-0" />
+            <div className="pt-2 flex items-center gap-2 text-[11px] text-zinc-400 font-sans">
+              <ShieldAlert className="w-3.5 h-3.5 text-amber-400 flex-shrink-0" />
               <span>Prices and tiers shown are demo placeholders subject to final client confirmation upon onboarding.</span>
             </div>
           </div>

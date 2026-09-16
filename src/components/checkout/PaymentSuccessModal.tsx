@@ -42,9 +42,9 @@ export default function PaymentSuccessModal({ receipt, onClose }: PaymentSuccess
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="relative w-full max-w-lg bg-[#141419] border border-white/10 rounded-3xl p-6 sm:p-8 shadow-2xl overflow-hidden">
-        {/* Subtle Brand Purple Glow */}
-        <div className="absolute top-0 right-1/2 translate-x-1/2 w-64 h-32 bg-[#7A5CFF]/20 rounded-full blur-3xl pointer-events-none" />
+      <div className="relative w-full max-w-lg bg-[#0D1730] border border-[#00C6FF]/30 rounded-3xl p-6 sm:p-8 shadow-2xl overflow-hidden">
+        {/* Subtle Brand Cyan Glow */}
+        <div className="absolute top-0 right-1/2 translate-x-1/2 w-64 h-32 bg-[#0066FF]/25 rounded-full blur-3xl pointer-events-none" />
 
         {/* Header */}
         <div className="flex items-start justify-between pb-4 border-b border-white/10 relative z-10">
@@ -70,15 +70,15 @@ export default function PaymentSuccessModal({ receipt, onClose }: PaymentSuccess
         </div>
 
         {/* Digital Membership Pass Card */}
-        <div className="mt-6 rounded-2xl bg-gradient-to-br from-[#101014] via-[#141419] to-[#18181F] border border-white/10 p-6 shadow-xl relative overflow-hidden">
+        <div className="mt-6 rounded-2xl bg-gradient-to-br from-[#091124] via-[#0D1730] to-[#14254D] border border-[#00C6FF]/25 p-6 shadow-xl relative overflow-hidden">
           {/* Watermark Logo */}
-          <div className="absolute -right-6 -bottom-6 opacity-5 pointer-events-none text-[#7A5CFF]">
+          <div className="absolute -right-6 -bottom-6 opacity-5 pointer-events-none text-[#00C6FF]">
             <Award className="w-44 h-44" />
           </div>
 
           <div className="flex items-center justify-between pb-4 border-b border-white/10">
             <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded bg-gradient-to-r from-[#7A5CFF] to-[#3B82F6] flex items-center justify-center text-white font-black text-xs shadow-md shadow-[#7A5CFF]/30">
+              <div className="w-6 h-6 rounded bg-gradient-to-r from-[#0066FF] to-[#00C6FF] flex items-center justify-center text-white font-black text-xs shadow-md shadow-[#0066FF]/40">
                 A
               </div>
               <span className="font-heading font-black tracking-widest text-sm text-white uppercase">
@@ -96,7 +96,7 @@ export default function PaymentSuccessModal({ receipt, onClose }: PaymentSuccess
               <span className="text-[11px] text-zinc-400 block uppercase tracking-wider font-mono">
                 Member ID
               </span>
-              <span className="text-base sm:text-lg font-heading font-black text-[#7A5CFF] tracking-wider font-mono">
+              <span className="text-base sm:text-lg font-heading font-black text-[#00C6FF] tracking-wider font-mono">
                 {receipt.memberCode}
               </span>
             </div>
@@ -122,24 +122,24 @@ export default function PaymentSuccessModal({ receipt, onClose }: PaymentSuccess
           {/* Validity & Club Location */}
           <div className="mt-4 grid grid-cols-2 gap-4 pt-4 border-t border-white/10 text-xs">
             <div className="flex items-start gap-2 text-zinc-300">
-              <Calendar className="w-3.5 h-3.5 text-[#7A5CFF] shrink-0 mt-0.5" />
+              <Calendar className="w-3.5 h-3.5 text-[#00C6FF] shrink-0 mt-0.5" />
               <div>
-                <span className="text-[10px] text-zinc-500 block uppercase">Valid Period</span>
+                <span className="text-[10px] text-zinc-400 block uppercase">Valid Period</span>
                 <span>{formatDate(receipt.startDate)} – {formatDate(receipt.endDate)}</span>
               </div>
             </div>
 
             <div className="flex items-start gap-2 text-zinc-300">
-              <MapPin className="w-3.5 h-3.5 text-[#7A5CFF] shrink-0 mt-0.5" />
+              <MapPin className="w-3.5 h-3.5 text-[#00C6FF] shrink-0 mt-0.5" />
               <div>
-                <span className="text-[10px] text-zinc-500 block uppercase">Home Club</span>
+                <span className="text-[10px] text-zinc-400 block uppercase">Home Club</span>
                 <span>Amanora Club, Pune</span>
               </div>
             </div>
           </div>
 
           {/* Simulated QR Code for Front Desk Entry */}
-          <div className="mt-5 p-3 rounded-xl bg-black/40 border border-white/10 flex items-center justify-between">
+          <div className="mt-5 p-3 rounded-xl bg-black/50 border border-[#00C6FF]/20 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="p-2 rounded-lg bg-white text-black">
                 <QrCode className="w-8 h-8" />
@@ -149,7 +149,7 @@ export default function PaymentSuccessModal({ receipt, onClose }: PaymentSuccess
                 <span className="text-[10px] text-zinc-400 font-mono">Show at Amanora Front Desk</span>
               </div>
             </div>
-            <span className="text-[10px] font-mono text-zinc-400">
+            <span className="text-[10px] font-mono text-[#00C6FF]">
               ₹{receipt.amountInINR.toLocaleString('en-IN')} Paid
             </span>
           </div>
@@ -159,7 +159,7 @@ export default function PaymentSuccessModal({ receipt, onClose }: PaymentSuccess
         <div className="mt-6 flex flex-col sm:flex-row items-center gap-3">
           <button
             onClick={handlePrint}
-            className="w-full sm:w-auto flex-1 py-3.5 px-4 rounded-full bg-white/[0.04] hover:bg-[#7A5CFF]/10 border border-white/10 hover:border-[#7A5CFF]/35 text-[#F5F5F7] hover:text-white font-medium text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer"
+            className="w-full sm:w-auto flex-1 py-3.5 px-4 rounded-full bg-[#0066FF]/10 hover:bg-[#0066FF]/20 border border-[#00C6FF]/30 hover:border-[#00C6FF]/60 text-white font-medium text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer"
           >
             <Printer className="w-3.5 h-3.5" />
             <span>Print Pass</span>
@@ -167,7 +167,7 @@ export default function PaymentSuccessModal({ receipt, onClose }: PaymentSuccess
 
           <Link
             href="/admin"
-            className="w-full sm:w-auto flex-1 py-3.5 px-4 rounded-full bg-gradient-to-r from-[#7A5CFF] to-[#3B82F6] hover:brightness-110 text-white font-heading font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-lg shadow-[#7A5CFF]/30 text-center transform hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer"
+            className="w-full sm:w-auto flex-1 py-3.5 px-4 rounded-full bg-gradient-to-r from-[#0066FF] to-[#00C6FF] hover:brightness-110 text-white font-heading font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-lg shadow-[#0066FF]/40 text-center transform hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer"
           >
             <span>Admin Console</span>
             <ArrowRight className="w-3.5 h-3.5" />

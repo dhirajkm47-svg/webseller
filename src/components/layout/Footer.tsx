@@ -1,10 +1,10 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { MapPin, Phone, Mail, Clock, ExternalLink, Shield } from "lucide-react";
 import { CLUB_LOCATION_INFO } from "@/data/demo-content";
 
 export default function Footer() {
   return (
-    <footer id="contact" className="bg-[#0B0B0F] border-t border-white/10 text-zinc-400 pt-16 pb-12">
+    <footer id="contact" className="bg-[#050B18] border-t border-white/10 text-zinc-400 pt-16 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-white/10">
           {/* Brand Logo & Location Info */}
@@ -14,8 +14,8 @@ export default function Footer() {
                 <svg viewBox="0 0 32 32" fill="none" className="w-7 h-7">
                   <defs>
                     <linearGradient id="footerLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#7A5CFF" />
-                      <stop offset="100%" stopColor="#3B82F6" />
+                      <stop offset="0%" stopColor="#0066FF" />
+                      <stop offset="100%" stopColor="#00C6FF" />
                     </linearGradient>
                   </defs>
                   <path d="M16 2L3 28H10L16 15L22 28H29L16 2Z" fill="url(#footerLogoGrad)" />
@@ -23,7 +23,7 @@ export default function Footer() {
                 </svg>
               </div>
               <span className="font-heading font-black text-base tracking-wider text-white uppercase">
-                ALPHA <span className="text-zinc-200">FITNESS</span>
+                ALPHA <span className="text-[#00C6FF]">FITNESS</span>
               </span>
             </div>
             <p className="text-xs text-zinc-400 leading-relaxed font-sans">
@@ -31,15 +31,15 @@ export default function Footer() {
             </p>
             <div className="space-y-2 pt-2 text-xs text-zinc-300 font-sans">
               <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-[#7A5CFF] flex-shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-[#00C6FF] flex-shrink-0 mt-0.5" />
                 <span>{CLUB_LOCATION_INFO.fullAddress}</span>
               </div>
               <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-[#7A5CFF] flex-shrink-0" />
+                <Phone className="w-4 h-4 text-[#00C6FF] flex-shrink-0" />
                 <span>{CLUB_LOCATION_INFO.phonePlaceholder}</span>
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-[#7A5CFF] flex-shrink-0" />
+                <Mail className="w-4 h-4 text-[#00C6FF] flex-shrink-0" />
                 <span>{CLUB_LOCATION_INFO.emailPlaceholder}</span>
               </div>
             </div>
@@ -50,22 +50,22 @@ export default function Footer() {
             <h3 className="text-xs font-heading font-black text-white uppercase tracking-wider">Quick Links</h3>
             <ul className="space-y-2 text-xs font-sans">
               <li>
-                <a href="#" className="hover:text-white transition-colors">Home</a>
+                <a href="#" className="hover:text-[#00C6FF] transition-colors">Home</a>
               </li>
               <li>
-                <a href="#editorial-story" className="hover:text-white transition-colors">Philosophy</a>
+                <a href="#editorial-story" className="hover:text-[#00C6FF] transition-colors">Philosophy</a>
               </li>
               <li>
-                <a href="#facilities" className="hover:text-white transition-colors">Gym Facilities</a>
+                <a href="#facilities" className="hover:text-[#00C6FF] transition-colors">Gym Facilities</a>
               </li>
               <li>
-                <a href="#gallery" className="hover:text-white transition-colors">Photo Gallery</a>
+                <a href="#gallery" className="hover:text-[#00C6FF] transition-colors">Photo Gallery</a>
               </li>
               <li>
-                <a href="#membership" className="hover:text-white transition-colors">Membership Passes</a>
+                <a href="#membership" className="hover:text-[#00C6FF] transition-colors">Membership Passes</a>
               </li>
               <li>
-                <a href="#location" className="hover:text-white transition-colors">Location & Hours</a>
+                <a href="#location" className="hover:text-[#00C6FF] transition-colors">Location & Hours</a>
               </li>
             </ul>
           </div>
@@ -73,7 +73,7 @@ export default function Footer() {
           {/* Operating Hours */}
           <div className="space-y-3">
             <h3 className="text-xs font-heading font-black text-white uppercase tracking-wider flex items-center gap-1.5">
-              <Clock className="w-3.5 h-3.5 text-[#7A5CFF]" />
+              <Clock className="w-3.5 h-3.5 text-[#00C6FF]" />
               <span>Hours [DEMO]</span>
             </h3>
             <div className="space-y-2 text-xs font-sans">
@@ -96,16 +96,16 @@ export default function Footer() {
             <h3 className="text-xs font-heading font-black text-white uppercase tracking-wider">
               Management Portal
             </h3>
-            <div className="bg-[#141419] p-4 rounded-2xl border border-white/10 text-xs space-y-2.5">
+            <div className="bg-[#0D1730] p-4 rounded-2xl border border-white/10 text-xs space-y-2.5">
               <p className="text-zinc-300 text-[11px] font-sans">
                 Admin console for member records, payment logs, and check-in pass validation.
               </p>
               <div className="pt-1">
                 <Link
                   href="/admin"
-                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/[0.04] hover:bg-[#7A5CFF]/10 text-white border border-white/10 hover:border-[#7A5CFF]/40 font-heading font-bold text-xs uppercase tracking-wider transition-all"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#0066FF]/10 hover:bg-[#0066FF]/20 text-white border border-[#00C6FF]/30 hover:border-[#00C6FF] font-heading font-bold text-xs uppercase tracking-wider transition-all shadow-[0_0_15px_rgba(0,198,255,0.15)]"
                 >
-                  <Shield className="w-3 h-3 text-[#7A5CFF]" />
+                  <Shield className="w-3 h-3 text-[#00C6FF]" />
                   <span>Admin Dashboard</span>
                   <ExternalLink className="w-3 h-3 text-zinc-400" />
                 </Link>
@@ -122,7 +122,7 @@ export default function Footer() {
             <span>•</span>
             <span>Membership Terms</span>
             <span>•</span>
-            <span className="text-[#7A5CFF] font-semibold">Amanora Township, Hadapsar</span>
+            <span className="text-[#00C6FF] font-semibold">Amanora Township, Hadapsar</span>
           </div>
         </div>
       </div>

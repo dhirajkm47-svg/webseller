@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark scroll-smooth">
-      <body className="bg-[#0B0B0F] text-[#F5F5F7] antialiased min-h-screen font-sans selection:bg-[#7A5CFF] selection:text-white">
+      <body className="bg-[#050B18] text-[#F8FAFC] antialiased min-h-screen font-sans selection:bg-[#00C6FF] selection:text-black">
         {children}
       </body>
     </html>

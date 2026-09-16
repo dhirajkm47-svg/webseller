@@ -10,7 +10,7 @@ interface EditorialStoryProps {
 
 export default function EditorialStorySection({ onOpenCheckout }: EditorialStoryProps) {
   return (
-    <section id="editorial-story" className="py-24 bg-[#101014] border-y border-white/10 relative overflow-hidden">
+    <section id="editorial-story" className="py-24 bg-[#091124] border-y border-white/10 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Asymmetric 2x2 Editorial Photo & Typography Grid */}
@@ -22,7 +22,7 @@ export default function EditorialStorySection({ onOpenCheckout }: EditorialStory
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-7 relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl min-h-[480px] lg:min-h-[580px] group bg-[#141419]"
+            className="lg:col-span-7 relative rounded-3xl overflow-hidden border border-[#00C6FF]/25 shadow-2xl min-h-[480px] lg:min-h-[580px] group bg-[#0D1730]"
           >
             <Image
               src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=1600"
@@ -30,11 +30,11 @@ export default function EditorialStorySection({ onOpenCheckout }: EditorialStory
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-700 brightness-95"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0F] via-[#0B0B0F]/30 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#050B18] via-[#050B18]/30 to-transparent" />
             
             {/* Overlay Headline on Left Photo */}
             <div className="absolute bottom-8 left-8 right-8 space-y-2">
-              <span className="text-[10px] font-mono uppercase tracking-widest text-[#7A5CFF] font-bold block">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-[#00C6FF] font-bold block">
                 Pillar 01 — Training Arena
               </span>
               <h3 className="text-2xl sm:text-4xl font-heading font-black text-white uppercase leading-tight">
@@ -55,7 +55,7 @@ export default function EditorialStorySection({ onOpenCheckout }: EditorialStory
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.15 }}
-              className="relative h-60 sm:h-64 w-full rounded-3xl overflow-hidden border border-white/10 shadow-xl group bg-[#141419]"
+              className="relative h-60 sm:h-64 w-full rounded-3xl overflow-hidden border border-white/10 shadow-xl group bg-[#0D1730]"
             >
               <Image
                 src="https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&q=80&w=1000"
@@ -63,10 +63,10 @@ export default function EditorialStorySection({ onOpenCheckout }: EditorialStory
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#101014] via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#091124] via-transparent to-transparent" />
               <div className="absolute bottom-4 left-5 right-5 flex items-center justify-between">
                 <div>
-                  <span className="text-[10px] font-mono uppercase text-[#7A5CFF] font-bold block">
+                  <span className="text-[10px] font-mono uppercase text-[#00C6FF] font-bold block">
                     Pillar 02
                   </span>
                   <h4 className="text-sm font-heading font-black text-white uppercase">
@@ -83,17 +83,17 @@ export default function EditorialStorySection({ onOpenCheckout }: EditorialStory
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.25 }}
-              className="p-8 rounded-3xl bg-[#141419] border border-white/10 flex flex-col justify-between flex-1 space-y-6"
+              className="p-8 rounded-3xl bg-[#0D1730] border border-[#00C6FF]/20 flex flex-col justify-between flex-1 space-y-6 shadow-xl"
             >
               <div className="space-y-3">
-                <div className="inline-flex items-center gap-2 text-[10px] font-mono font-bold uppercase tracking-widest text-[#7A5CFF]">
-                  <Sparkles className="w-3 h-3" />
+                <div className="inline-flex items-center gap-2 text-[10px] font-mono font-bold uppercase tracking-widest text-[#00C6FF]">
+                  <Sparkles className="w-3 h-3 text-[#00C6FF]" />
                   <span>COMMITTED TO PROGRESS</span>
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-heading font-black text-white uppercase tracking-tight leading-tight">
                   PURPOSEFUL SPACES FOR REAL RESULTS
                 </h3>
-                <p className="text-xs sm:text-sm text-zinc-400 font-sans leading-relaxed">
+                <p className="text-xs sm:text-sm text-zinc-300 font-sans leading-relaxed">
                   Alpha Fitness operates as a dedicated fitness facility inside Amanora Club, Hadapsar, Pune. Every member gains access to well-maintained workout spaces, free weights, and instant digital check-in.
                 </p>
               </div>
@@ -101,7 +101,7 @@ export default function EditorialStorySection({ onOpenCheckout }: EditorialStory
               <div className="pt-2">
                 <button
                   onClick={onOpenCheckout}
-                  className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-gradient-to-r from-[#7A5CFF] to-[#3B82F6] hover:brightness-110 text-white font-heading font-black text-xs uppercase tracking-wider shadow-lg shadow-[#7A5CFF]/30 hover:shadow-[#7A5CFF]/50 transition-all transform hover:-translate-y-0.5 active:scale-[0.98] flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-gradient-to-r from-[#0066FF] to-[#00C6FF] hover:brightness-110 text-white font-heading font-black text-xs uppercase tracking-wider shadow-lg shadow-[#0066FF]/35 hover:shadow-[#00C6FF]/55 transition-all transform hover:-translate-y-0.5 active:scale-[0.98] flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <span>Explore Membership</span>
                   <ArrowRight className="w-4 h-4" />
