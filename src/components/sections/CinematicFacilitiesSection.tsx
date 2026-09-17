@@ -176,12 +176,13 @@ export default function CinematicFacilitiesSection() {
                         src={zone.image}
                         alt={zone.title}
                         fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-700 brightness-95 contrast-105"
+                        className="object-cover group-hover:scale-105 transition-transform duration-700 brightness-100 contrast-105"
+                        priority={index === 0}
                       />
                     </motion.div>
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#050B18]/90 via-[#050B18]/25 to-transparent pointer-events-none" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#050B18]/40 via-transparent to-transparent pointer-events-none" />
+                    {/* Subtle bottom vignette only for numeric tag readability */}
+                    <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#050B18]/70 via-[#050B18]/20 to-transparent pointer-events-none" />
 
                     {/* Top Location Tag */}
                     <div className="absolute top-6 left-6 px-4 py-1.5 rounded-full bg-[#091124]/90 border border-[#00C6FF]/35 backdrop-blur-md flex items-center gap-2 pointer-events-none z-10 shadow-xl">
@@ -193,10 +194,10 @@ export default function CinematicFacilitiesSection() {
 
                     {/* Bottom Numeric Identifier */}
                     <div className="absolute bottom-6 left-6 flex items-baseline gap-3 pointer-events-none z-10">
-                      <span className="font-heading font-black text-4xl text-white/90">
+                      <span className="font-heading font-black text-4xl text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
                         {zone.num}
                       </span>
-                      <span className="text-[10px] font-mono text-[#00C6FF] font-bold uppercase tracking-widest">
+                      <span className="text-[10px] font-mono text-[#00C6FF] font-bold uppercase tracking-widest drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
                         ALPHA FITNESS TRAINING SUITE
                       </span>
                     </div>
