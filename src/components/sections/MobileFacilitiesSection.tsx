@@ -12,7 +12,7 @@ const FACILITY_ZONES = [
     description:
       "Dedicated floor area engineered for barbell work, progressive overload, and structured strength routines inside Amanora Club.",
     specs: ["Heavy Dumbbell Range", "Olympic Power Racks", "Plate-Loaded Machines", "Rubberized Impact Flooring"],
-    image: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80&w=1000",
+    image: "/images/facilities/strength-resistance.jpg",
     location: "Amanora Club Main Floor",
   },
   {
@@ -22,7 +22,7 @@ const FACILITY_ZONES = [
     description:
       "Modern treadmills, stationary bicycles, and cardiovascular conditioning equipment overlooking the Amanora grounds.",
     specs: ["Commercial Treadmills", "Stationary Spin Cycles", "Interval Conditioning", "Heart-Rate Tracking Friendly"],
-    image: "https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&q=80&w=1000",
+    image: "/images/facilities/cardio-suite.jpg",
     location: "Amanora Club Cardio Wing",
   },
   {
@@ -32,7 +32,7 @@ const FACILITY_ZONES = [
     description:
       "Complete selection of precision dumbbells, flat and incline Olympic benches, and weight racks for compound movements.",
     specs: ["Dumbbell Sets up to 40kg+", "Adjustable & Incline Benches", "Olympic Barbells", "Dedicated Mirror Walls"],
-    image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1000",
+    image: "/images/facilities/free-weights-arena.jpg",
     location: "Amanora Club Free Weight Floor",
   },
   {
@@ -42,7 +42,7 @@ const FACILITY_ZONES = [
     description:
       "Spacious open floor designated for athletic agility, bodyweight drills, core stabilization, and post-workout mobility.",
     specs: ["Mobility & Stretching Zone", "Functional Agility Space", "Kettlebells & Resistance Bands", "Clean Member Changing Access"],
-    image: "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=1000",
+    image: "/images/facilities/functional-mobility.jpg",
     location: "Amanora Club Functional Arena",
   },
 ];

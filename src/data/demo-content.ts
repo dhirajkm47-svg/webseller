@@ -124,35 +124,35 @@ export const DEMO_FACILITIES: FacilityDemo[] = [
     id: "fac-training-area",
     title: "Training Floor",
     description: "Dedicated space for strength and resistance training exercises.",
-    image: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80&w=1000",
+    image: "/images/facilities/strength-resistance.jpg",
     tag: "Training Floor"
   },
   {
     id: "fac-cardio-area",
     title: "Cardio Space",
     description: "Treadmills, stationary bicycles, and cardiovascular equipment.",
-    image: "https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&q=80&w=1000",
+    image: "/images/facilities/cardio-suite.jpg",
     tag: "Cardio Space"
   },
   {
     id: "fac-freeweights-area",
     title: "Free Weights",
     description: "Dumbbells, weight benches, barbells, and plate racks.",
-    image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1000",
+    image: "/images/facilities/free-weights-arena.jpg",
     tag: "Free Weights"
   },
   {
     id: "fac-functional-space",
     title: "Functional Space",
     description: "Open floor area for mobility exercises, core workouts, and stretching.",
-    image: "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=1000",
+    image: "/images/facilities/functional-mobility.jpg",
     tag: "Functional Space"
   },
   {
     id: "fac-club-amenities",
     title: "Club Amenities",
     description: "Locker rooms, showers, and member changing spaces at Amanora Club.",
-    image: "https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&q=80&w=1000",
+    image: "/images/facilities/alpha-fitness-floor.jpg",
     tag: "Club Amenities"
   }
 ];
