@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import Header from "@/components/layout/Header";
@@ -10,6 +10,7 @@ import EditorialGallery from "@/components/sections/EditorialGallery";
 import AtmosphereBanner from "@/components/sections/AtmosphereBanner";
 import MembershipPlans from "@/components/sections/MembershipPlans";
 import FAQ from "@/components/sections/FAQ";
+import FinalCTASection from "@/components/sections/FinalCTASection";
 import LocationContact from "@/components/sections/LocationContact";
 import CheckoutModal from "@/components/checkout/CheckoutModal";
 import PaymentSuccessModal from "@/components/checkout/PaymentSuccessModal";
@@ -59,6 +60,10 @@ export default function Home() {
 
       {/* FAQ & Location Sections */}
       <FAQ />
+
+      {/* Cinematic Final CTA Section */}
+      <FinalCTASection onOpenCheckout={() => handleOpenCheckout()} />
+
       <LocationContact />
 
       {/* Minimal Editorial Footer */}
