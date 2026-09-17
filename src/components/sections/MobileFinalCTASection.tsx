@@ -23,7 +23,7 @@ export default function MobileFinalCTASection({ onOpenCheckout }: MobileFinalCTA
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="rounded-2xl overflow-hidden border border-[#00C6FF]/30 bg-[#0D1730] shadow-xl relative p-6 sm:p-8 space-y-6"
+          className="rounded-2xl overflow-hidden border border-[#00C6FF]/35 bg-[#0D1730] shadow-2xl relative p-6 sm:p-8 space-y-6"
         >
           {/* Background Image Layer */}
           <div className="absolute inset-0 z-0">
@@ -42,14 +42,14 @@ export default function MobileFinalCTASection({ onOpenCheckout }: MobileFinalCTA
               <span>04 / FINAL STANDARD</span>
             </div>
 
-            <h2 className="text-2xl sm:text-3xl font-heading font-black text-white uppercase tracking-tight leading-tight">
+            <h2 className="text-2xl sm:text-3xl font-heading font-black text-white uppercase tracking-tight leading-tight drop-shadow-md">
               ELEVATE YOUR <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0066FF] to-[#00C6FF]">
                 FITNESS STANDARDS
               </span>
             </h2>
 
-            <p className="text-xs sm:text-sm text-zinc-300 font-sans leading-relaxed">
+            <p className="text-xs sm:text-sm text-zinc-200 font-sans leading-relaxed">
               Structured strength routines, cardio conditioning, and organized fitness spaces inside Amanora Club, Hadapsar, Pune.
             </p>
 
@@ -65,7 +65,7 @@ export default function MobileFinalCTASection({ onOpenCheckout }: MobileFinalCTA
 
               <a
                 href="#location"
-                className="w-full py-3 px-6 rounded-full bg-white/5 hover:bg-white/10 text-zinc-300 hover:text-white border border-white/15 font-heading font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full py-3 px-6 rounded-full bg-[#050B18]/90 hover:bg-[#050B18] text-white border border-[#00C6FF]/40 font-heading font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
               >
                 <MapPin className="w-3.5 h-3.5 text-[#00C6FF]" />
                 <span>Visit Club Location</span>
@@ -73,12 +73,12 @@ export default function MobileFinalCTASection({ onOpenCheckout }: MobileFinalCTA
             </div>
 
             {/* Location Quick Strip */}
-            <div className="pt-4 border-t border-white/10 space-y-2 text-xs font-sans">
-              <div className="flex items-center gap-2 text-zinc-300 font-medium">
+            <div className="pt-4 border-t border-white/15 space-y-2 text-xs font-sans">
+              <div className="flex items-center gap-2 text-white font-medium">
                 <Shield className="w-3.5 h-3.5 text-[#00C6FF] flex-shrink-0" />
                 <span>Amanora Club (Fern Hotel), Hadapsar, Pune</span>
               </div>
-              <p className="text-[11px] text-zinc-400 font-mono">
+              <p className="text-[11px] text-zinc-300 font-mono">
                 Hours: {CLUB_LOCATION_INFO.operatingHours.weekdays}
               </p>
             </div>

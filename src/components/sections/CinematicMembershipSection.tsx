@@ -29,29 +29,29 @@ export default function CinematicMembershipSection({ onSelectPlan }: CinematicMe
   const rawWatermarkY = useTransform(smoothProgress, [0, 1], ["-6%", "14%"]);
   const watermarkY = shouldReduceMotion ? "0%" : rawWatermarkY;
 
-  // Header and Stage Reveal Transforms
-  const headerOpacity = useTransform(smoothProgress, [0, 0.15], [0.4, 1]);
-  const headerY = useTransform(smoothProgress, [0, 0.15], [-20, 0]);
+  // Header and Stage Reveal Transforms (Always readable, subtle elevation)
+  const headerOpacity = useTransform(smoothProgress, [0, 0.15], [0.85, 1]);
+  const headerY = useTransform(smoothProgress, [0, 0.15], [-12, 0]);
 
-  // Staged Card Reveal Transforms:
-  // Card 1 (Flex Monthly): enters early (0% -> 25%)
-  const card1Opacity = useTransform(smoothProgress, [0, 0.22], [0.2, 1]);
-  const card1Y = useTransform(smoothProgress, [0, 0.25], [30, 0]);
-  const card1Scale = useTransform(smoothProgress, [0, 0.25, 0.8], [0.95, 1, 1]);
+  // Staged Card Reveal Transforms (Elevated opacity floors to maintain high readability throughout scroll):
+  // Card 1 (Flex Monthly): enters early
+  const card1Opacity = useTransform(smoothProgress, [0, 0.22], [0.85, 1]);
+  const card1Y = useTransform(smoothProgress, [0, 0.22], [18, 0]);
+  const card1Scale = useTransform(smoothProgress, [0, 0.22, 0.8], [0.97, 1, 1]);
 
-  // Card 2 (Quarterly Pro - Popular): enters mid (15% -> 45%)
-  const card2Opacity = useTransform(smoothProgress, [0.12, 0.35], [0, 1]);
-  const card2Y = useTransform(smoothProgress, [0.12, 0.35], [40, 0]);
-  const card2Scale = useTransform(smoothProgress, [0.12, 0.35, 0.8], [0.92, 1.02, 1.02]);
+  // Card 2 (Quarterly Pro - Popular): enters mid with active highlight
+  const card2Opacity = useTransform(smoothProgress, [0.08, 0.32], [0.75, 1]);
+  const card2Y = useTransform(smoothProgress, [0.08, 0.32], [22, 0]);
+  const card2Scale = useTransform(smoothProgress, [0.08, 0.32, 0.8], [0.95, 1.02, 1.02]);
 
-  // Card 3 (Annual Elite): enters late (25% -> 60%)
-  const card3Opacity = useTransform(smoothProgress, [0.22, 0.48], [0, 1]);
-  const card3Y = useTransform(smoothProgress, [0.22, 0.48], [50, 0]);
-  const card3Scale = useTransform(smoothProgress, [0.22, 0.48, 0.8], [0.95, 1, 1]);
+  // Card 3 (Annual Elite): enters late
+  const card3Opacity = useTransform(smoothProgress, [0.15, 0.42], [0.75, 1]);
+  const card3Y = useTransform(smoothProgress, [0.15, 0.42], [26, 0]);
+  const card3Scale = useTransform(smoothProgress, [0.15, 0.42, 0.8], [0.97, 1, 1]);
 
-  // Final CTA Dominance Glow (80% -> 100%)
-  const bottomHandoffOpacity = useTransform(smoothProgress, [0.75, 0.95], [0, 1]);
-  const bottomHandoffY = useTransform(smoothProgress, [0.75, 0.95], [15, 0]);
+  // Bottom Membership Handoff Cue
+  const bottomHandoffOpacity = useTransform(smoothProgress, [0.65, 0.9], [0.75, 1]);
+  const bottomHandoffY = useTransform(smoothProgress, [0.65, 0.9], [10, 0]);
 
   const cardTransforms = [
     { opacity: shouldReduceMotion ? 1 : card1Opacity, y: shouldReduceMotion ? 0 : card1Y, scale: shouldReduceMotion ? 1 : card1Scale },
@@ -96,13 +96,13 @@ export default function CinematicMembershipSection({ onSelectPlan }: CinematicMe
               03 / MEMBERSHIP PASSES
             </span>
             <span className="text-zinc-600">•</span>
-            <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider">
+            <span className="text-xs font-mono text-zinc-300 uppercase tracking-wider">
               AMANORA CLUB (FERN HOTEL) • PUNE
             </span>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0D1730] border border-[#00C6FF]/30 text-xs font-mono font-bold text-white shadow-lg">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0D1730] border border-[#00C6FF]/40 text-xs font-mono font-bold text-white shadow-lg">
               <span className="w-1.5 h-1.5 rounded-full bg-[#00C6FF] animate-pulse" />
               <span>INSTANT ENROLLMENT</span>
               <span className="text-zinc-500">•</span>
@@ -116,14 +116,14 @@ export default function CinematicMembershipSection({ onSelectPlan }: CinematicMe
           
           {/* Section Title Banner */}
           <div className="text-center max-w-2xl mx-auto mb-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0066FF]/15 border border-[#00C6FF]/30 text-[#00C6FF] text-[10px] font-mono font-bold uppercase tracking-wider mb-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0066FF]/20 border border-[#00C6FF]/40 text-[#00C6FF] text-[10px] font-mono font-bold uppercase tracking-wider mb-2">
               <Sparkles className="w-3 h-3" />
               <span>TRAINING PRIVILEGES</span>
             </div>
             <h2 className="text-3xl xl:text-4xl font-heading font-black text-white uppercase tracking-tight leading-tight">
               CHOOSE YOUR <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0066FF] to-[#00C6FF]">FITNESS PLAN</span>
             </h2>
-            <p className="text-xs xl:text-sm text-zinc-300 font-sans mt-1">
+            <p className="text-xs xl:text-sm text-zinc-200 font-sans mt-1">
               Select your membership tier for Alpha Fitness at Amanora Club. Instant digital membership pass delivery.
             </p>
           </div>
@@ -143,15 +143,15 @@ export default function CinematicMembershipSection({ onSelectPlan }: CinematicMe
                     y: transform.y,
                     scale: transform.scale,
                   }}
-                  className={`relative rounded-3xl p-6 xl:p-7 flex flex-col justify-between transition-all duration-300 bg-[#0D1730] will-change-transform ${
+                  className={`relative rounded-3xl p-6 xl:p-7 flex flex-col justify-between transition-all duration-300 bg-[#0D1730] will-change-transform shadow-2xl ${
                     isPopular
-                      ? "border-2 border-[#00C6FF] shadow-2xl shadow-[#0066FF]/35 bg-gradient-to-b from-[#0D1730] to-[#081024]"
-                      : "border border-[#00C6FF]/25 hover:border-[#00C6FF]/50 shadow-xl"
+                      ? "border-2 border-[#00C6FF] shadow-[#0066FF]/40 bg-gradient-to-b from-[#0D1730] to-[#081024]"
+                      : "border border-[#00C6FF]/35 hover:border-[#00C6FF]/60"
                   }`}
                 >
                   {/* Most Popular Ribbon */}
                   {isPopular && (
-                    <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#0066FF] to-[#00C6FF] text-white text-[10px] font-heading font-black uppercase px-4 py-0.5 rounded-full shadow-lg shadow-[#0066FF]/50 tracking-widest flex items-center gap-1.5">
+                    <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#0066FF] to-[#00C6FF] text-white text-[10px] font-heading font-black uppercase px-4 py-0.5 rounded-full shadow-lg shadow-[#0066FF]/50 tracking-widest flex items-center gap-1.5 z-10">
                       <Sparkles className="w-3 h-3 text-white" />
                       <span>MOST POPULAR PASS</span>
                     </div>
@@ -159,7 +159,7 @@ export default function CinematicMembershipSection({ onSelectPlan }: CinematicMe
 
                   {/* Card Header & Price */}
                   <div className="space-y-4">
-                    <div className="flex items-start justify-between border-b border-white/10 pb-3">
+                    <div className="flex items-start justify-between border-b border-white/15 pb-3">
                       <div>
                         <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#00C6FF] block">
                           {plan.tierLabel} TIER
@@ -168,19 +168,19 @@ export default function CinematicMembershipSection({ onSelectPlan }: CinematicMe
                           {plan.name}
                         </h3>
                       </div>
-                      <span className="text-xs font-mono font-black text-zinc-400 bg-white/5 px-2.5 py-1 rounded-lg border border-white/10">
+                      <span className="text-xs font-mono font-black text-white bg-white/10 px-2.5 py-1 rounded-lg border border-white/15">
                         {planNumber}
                       </span>
                     </div>
 
-                    <p className="text-xs text-zinc-300 font-sans leading-relaxed min-h-[36px]">
+                    <p className="text-xs text-zinc-200 font-sans leading-relaxed min-h-[36px]">
                       {plan.description}
                     </p>
 
                     {/* Pricing Block */}
-                    <div className="py-3 px-4 rounded-2xl bg-[#050B18]/70 border border-white/10 flex items-baseline justify-between">
+                    <div className="py-3 px-4 rounded-2xl bg-[#050B18]/90 border border-white/15 flex items-baseline justify-between shadow-inner">
                       <div>
-                        <span className="text-xs font-bold text-zinc-400 mr-1">₹</span>
+                        <span className="text-xs font-bold text-zinc-300 mr-1">₹</span>
                         <span className="text-2xl xl:text-3xl font-heading font-black text-white tracking-tight">
                           {plan.priceInINR.toLocaleString("en-IN")}
                         </span>
@@ -195,11 +195,11 @@ export default function CinematicMembershipSection({ onSelectPlan }: CinematicMe
                       <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-400 font-bold block mb-2">
                         Included Privileges
                       </span>
-                      <ul className="space-y-2 text-xs text-zinc-300 font-sans">
+                      <ul className="space-y-2 text-xs text-zinc-100 font-sans font-medium">
                         {plan.features.map((feat, fIdx) => (
                           <li key={fIdx} className="flex items-start gap-2.5">
                             <Check className="w-4 h-4 text-[#00C6FF] flex-shrink-0 mt-0.5" />
-                            <span className="leading-snug">{feat}</span>
+                            <span className="leading-snug text-zinc-100">{feat}</span>
                           </li>
                         ))}
                       </ul>
@@ -207,13 +207,13 @@ export default function CinematicMembershipSection({ onSelectPlan }: CinematicMe
                   </div>
 
                   {/* Action Button */}
-                  <div className="pt-6 border-t border-white/10 mt-6">
+                  <div className="pt-6 border-t border-white/15 mt-6">
                     <button
                       onClick={() => onSelectPlan(plan)}
                       className={`w-full py-3.5 px-5 rounded-full text-xs font-heading font-black uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer ${
                         isPopular
                           ? "bg-gradient-to-r from-[#0066FF] to-[#00C6FF] hover:brightness-110 text-white shadow-xl shadow-[#0066FF]/40 hover:shadow-[#00C6FF]/60 transform hover:-translate-y-0.5 active:scale-[0.98]"
-                          : "bg-[#0066FF]/15 hover:bg-[#0066FF]/30 text-white border border-[#00C6FF]/40 hover:border-[#00C6FF]/80 transform hover:-translate-y-0.5 active:scale-[0.98]"
+                          : "bg-[#0066FF]/20 hover:bg-[#0066FF]/35 text-white border border-[#00C6FF]/50 hover:border-[#00C6FF] transform hover:-translate-y-0.5 active:scale-[0.98]"
                       }`}
                     >
                       <span>Select {plan.durationLabel} Pass</span>
@@ -228,8 +228,8 @@ export default function CinematicMembershipSection({ onSelectPlan }: CinematicMe
         </div>
 
         {/* BOTTOM METADATA & CTA DOMINANCE HANDOFF */}
-        <div className="relative z-10 max-w-7xl mx-auto w-full flex items-center justify-between text-xs font-mono text-zinc-400 pt-3 border-t border-white/10">
-          <div className="flex items-center gap-2 text-[11px] text-zinc-400">
+        <div className="relative z-10 max-w-7xl mx-auto w-full flex items-center justify-between text-xs font-mono text-zinc-300 pt-3 border-t border-white/10">
+          <div className="flex items-center gap-2 text-[11px] text-zinc-300">
             <Info className="w-3.5 h-3.5 text-[#00C6FF] flex-shrink-0" />
             <span>Prices and tiers shown are demo placeholders subject to final client confirmation.</span>
           </div>
